@@ -10,9 +10,7 @@ import Testimonials from "./Testimonials";
 import Popup from "../NavBar/Popup";
 
 const Home = () => {
-  useEffect(() => {
-    alert("Our website is still under development, and we are working hard to resolve some bugs. The official launch is scheduled for 29th December during our SB AGM. In the meantime, if you encounter any issues, please try reloading the page. Thank you for your patience and support!");
-  }, []);
+
   return (
     
     <>

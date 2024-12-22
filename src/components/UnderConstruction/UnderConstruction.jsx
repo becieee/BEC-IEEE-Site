@@ -103,23 +103,16 @@ const UnderConstruction = () => {
         ref={canvasRef}
         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
       />
+
       <div
+      className='bg-[#1a1a1a] absolute top-1/2 left-1/2 text-center z-10 px-10 py-5 rounded-lg'
         style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
           transform: 'translate(-50%, -50%)',
-          textAlign: 'center',
-          zIndex: 10,
-          backgroundColor: 'rgba(0, 0, 0, 0.8)',
-          padding: '20px 40px',
-          borderRadius: '15px',
-          color: '#ffffff',
         }}
       >
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Almost There...</h1>
-        <p style={{ fontSize: '1.2rem', color: '#bbbbbb' }}>
-        Our team is working hard to bring you something amazing. Hang tight and check back soon for the big reveal!
+        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Almost There...</h1>
+        <p style={{ fontSize: '1rem', color: '#bbbbbb' }}>
+          Our team is working hard to bring you something amazing. Hang tight and check back soon for the big reveal!
         </p>
       </div>
     </div>

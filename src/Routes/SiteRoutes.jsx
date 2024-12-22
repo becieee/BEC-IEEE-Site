@@ -2,6 +2,7 @@ import React from 'react'
 import Home from '../components/Home/Home'
 import { Route , Routes } from 'react-router-dom'
 import UnderConstruction from '../components/UnderConstruction/UnderConstruction'
+import Notfound from '../components/NotFound/Notfound'
 
 const SiteRoutes = () => {
   return (
@@ -16,7 +17,7 @@ const SiteRoutes = () => {
             <Route path='/affinities' element={<UnderConstruction/>} />
             <Route path='/membership' element={<UnderConstruction/>} />
             <Route path='/photo-gallery' element={<UnderConstruction/>} />
-            <Route path='/*' element={<UnderConstruction />} />
+            <Route path='/*' element={<Notfound />} />
         </Routes>
     </>
   )

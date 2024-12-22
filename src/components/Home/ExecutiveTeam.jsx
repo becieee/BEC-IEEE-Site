@@ -17,7 +17,7 @@ import UdayBg from "./assets/Uday.jpg";
 import RahulBg from "./assets/Rahul.jpg";
 
 const ExecutiveTeam = () => {
-  const [navigate, setNavigate] = useState(false);
+  // const [navigate, setNavigate] = useState(false);
 
   useEffect(() => {
     const t1 = gsap.timeline({
@@ -72,7 +72,6 @@ const ExecutiveTeam = () => {
 
   return (
     <>
-      {navigate && <Navigate to="/execoms" />}
       <div className="ExecutiveTeam h-fit max-w-[90rem] lg:px-5 sm:px-8 px-5 mx-auto mt-10 pt-10">
         <div className="lg:h-[33vmin] h-fit flex items-center">
           <div className="xl:w-[55%] lg:w-[48%] w-full">

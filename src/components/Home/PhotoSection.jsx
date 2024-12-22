@@ -1,151 +1,203 @@
-import React, { useEffect } from 'react'
-import { TiArrowRight } from 'react-icons/ti'
-import Masonry from 'react-masonry-css'
+import React, { useEffect, useState } from "react";
+import { TiArrowRight } from "react-icons/ti";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-import { useNavigate } from 'react-router-dom';
-
-import img1 from "./assets/1.jpg"
-import img2 from "./assets/2.jpg"
-import img3 from "./assets/3.jpg"
-import img4 from "./assets/4.jpg"
-import img5 from "./assets/5.jpg"
-import img6 from "./assets/6.jpg"
-import img7 from "./assets/7.jpg"
-import img8 from "./assets/8.jpg"
-import img9 from "./assets/9.jpg"
-import img10 from "./assets/10.jpg"
-import img11 from "./assets/11.jpg"
-import img12 from "./assets/12.jpg"
-import img13 from "./assets/13.jpg"
-import img14 from "./assets/14.jpg"
-import img15 from "./assets/15.jpg"
-import img16 from "./assets/16.jpg"
-import img17 from "./assets/17.jpg"
-import img18 from "./assets/18.jpg"
-import img19 from "./assets/19.jpg"
-import img20 from "./assets/20.jpg"
-import img21 from "./assets/21.jpg"
-import img22 from "./assets/22.jpg"
-import img23 from "./assets/23.jpg"
-import img24 from "./assets/24.jpg"
-import img25 from "./assets/25.jpg"
-import img26 from "./assets/26.jpg"
-import img27 from "./assets/27.jpg"
-import img28 from "./assets/28.jpg"
-import img29 from "./assets/29.jpg"
-import img30 from "./assets/30.jpg"
-
-
+import { useNavigate } from "react-router-dom";
+import "./css/grid.css";
 
 const PhotoSection = () => {
   const navigate = useNavigate();
+  gsap.registerPlugin(ScrollTrigger);
 
-  const breakpointColumnsObj = {
-    default: 7, // Default column count
-    1100: 4,    // 3 columns for screens ≤ 1100px
-    768: 4,  // 2 columns for screens ≤ 768px
-    500: 3      // 1 column for screens ≤ 500px
-  };
+  const [isSM, setIsSM] = useState(false);
 
-  // useEffect(() => {
-  //   // const t1 = gsap.timeline({
-  //   //   scrollTrigger:{
-  //   //     trigger: ".photo", // Ensures it's targeting the correct section
-  //   //     start: "top 0%", // Triggers when the section enters the viewport
-  //   //     end: "top -100%", // Ends slightly before the section leaves
-  //   //     scrub: true,
-  //   //     markers: true,
-  //   //     pin: true
-  //   //   }
-  //   // })
+  useEffect(() => {
+    const updateGridValues = () => {
+      const width = window.innerWidth;
+      if ( width < 1024 ) {
+        setIsSM(true);
+      } else {
+        setIsSM(false);
+      }
+    };
 
-  //   // t1.fromTo('.imgAnim', // Select all mem elements
-  //   //   {
-  //   //     opacity: 0, // Start with opacity 0
-  //   //     scale: 1.2
-  //   //   },
-  //   //   {
-  //   //     opacity: 1, // Fade to opacity 1
-  //   //     scale: 1,
-  //   //   }
-  //   // );
+    updateGridValues();
+    window.addEventListener("resize", updateGridValues);
 
-  //   // return () => {
-  //   //   t1.kill(); // Kill timeline on component unmount
-  //   //   ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Remove scroll triggers
-  //   // };
+    return () => {
+      window.removeEventListener("resize", updateGridValues);
+    };
+  }, []);
 
-  // },[]);
+  useEffect(() => {
+    document.querySelectorAll(".elem").forEach(elem => {
+      let image = elem.querySelector("img")
+      let tl = gsap.timeline()
 
+      let xTransform = gsap.utils.random(-100, 100);
+
+      tl.set(image,{
+        transformOrigin: `${xTransform < 0 ? 0 : '100%'}`,
+      },"start")
+      .to(image, {
+        scale: 0,
+        ease:"none",
+        scrollTrigger: {
+          trigger:image,
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      },"start")
+    })
+  },[])
 
   return (
-
     <>
-        <div className='photo w-full h-screen flex flex-col justify-center items-center mt-20 overflow-hidden'>
-          <div className=''>
-            <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-white'>Memorable Moments</h1>
-              <h1 className='text-base sm:text-lg lg:text-2xl font-bold text-center text-white' >Relive our cherished memories through a captivating photo gallery.</h1>
-              <div className='flex justify-center items-center w-full'>
-                <button 
-                  className="group bg-white text-black rounded-full px-5 py-3 font-bold flex justify-center items-center gap-2 mt-5"
-                  onClick={() => navigate('/photo-gallery')}
-                >
-                    Photo Gallery 
-                  <TiArrowRight className="text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </button>
-              </div>
-          </div>
-            
-            <div className='absolute -z-10 h-screen overflow-hidden  masonry opacity-30 sm:px-10 px-2 bg-slate-700'>
-          <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="flex w-auto"
-            columnClassName="bg-clip-padding"
+      <div className="w-full h-fit relative pt-10">
+        <div className="grid lg:grid-cols-8 grid-cols-4 grid-rows-20 gap-2 overflow-hidden">
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 1, "--c": 3 }} 
           >
-            <img src={img1} alt="Image 1" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img2} alt="Image 2" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img3} alt="Image 3" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img4} alt="Image 4" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img5} alt="Image 5" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img6} alt="Image 6" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img7} alt="Image 7" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img8} alt="Image 8" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img9} alt="Image 9" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img10} alt="Image 10" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img11} alt="Image 11" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img12} alt="Image 12" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img13} alt="Image 13" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img14} alt="Image 14" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img15} alt="Image 15" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img16} alt="Image 16" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img17} alt="Image 17" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img26} alt="Image 26" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img18} alt="Image 18" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img19} alt="Image 19" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img20} alt="Image 20" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img21} alt="Image 21" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img22} alt="Image 22" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img23} alt="Image 23" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img24} alt="Image 24" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img25} alt="Image 25" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img27} alt="Image 27" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img28} alt="Image 28" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img29} alt="Image 29" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img30} alt="Image 30" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img30} alt="Image 30" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img30} alt="Image 30" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img30} alt="Image 30" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img30} alt="Image 30" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-            <img src={img30} alt="Image 30" className="w-full object-cover border-2 border-gray-300 imgAnim" />
-          </Masonry>
-            </div>
+            <img src={`./assets/1.jpg`} alt={`image 1`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 1, "--c": isSM ? 1 : 7 }} 
+          >
+            <img src={`./assets/2.jpg`} alt={`image 2`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 2, "--c": 2 }}
+          >
+            <img src={`./assets/3.jpg`} alt={`image 3`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 2, "--c": isSM ? 4 : 6 }}
+          >
+            <img src={`./assets/4.jpg`} alt={`image 4`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 3, "--c": isSM ? 2 : 4 }}
+          >
+            <img src={`./assets/5.jpg`} alt={`image 5`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 3, "--c": isSM ? 3 : 8 }}
+          >
+            <img src={`./assets/6.jpg`} alt={`image 6`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 4, "--c": 1 }}
+          >
+            <img src={`./assets/7.jpg`} alt={`image 7`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 4, "--c": isSM ? 4 : 7 }}
+          >
+            <img src={`./assets/8.jpg`} alt={`image 8`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 5, "--c": 2 }}
+          >
+            <img src={`./assets/9.jpg`} alt={`image 9`} />
+          </div>
+          {/* <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 5, "--c": 5 }}
+          >
+            <img src={`./assets/10.jpg`} alt={`image 10`} />
+          </div> */}
+          {/* <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 6, "--c": 3 }}
+          >
+            <img src={`./assets/11.jpg`} alt={`image 11`} />
+          </div> */}
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 6, "--c": isSM ? 1 : 7 }}
+          >
+            <img src={`./assets/12.jpg`} alt={`image 12`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 7, "--c": isSM ? 3 : 5 }}
+          >
+            <img src={`./assets/13.jpg`} alt={`image 13`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 7, "--c": isSM ? 2 : 8 }}
+          >
+            <img src={`./assets/14.jpg`} alt={`image 14`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 8, "--c": 1 }}
+          >
+            <img src={`./assets/15.jpg`} alt={`image 15`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 8, "--c": 4 }}
+          >
+            <img src={`./assets/16.jpg`} alt={`image 16`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 9, "--c": 3 }}
+          >
+            <img src={`./assets/17.jpg`} alt={`image 17`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 9, "--c": isSM ? 1 : 6 }}
+          >
+            <img src={`./assets/18.jpg`} alt={`image 18`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 10, "--c": 2 }}
+          >
+            <img src={`./assets/19.jpg`} alt={`image 19`} />
+          </div>
+          <div
+            className="elem col-span-1 row-span-1"
+            style={{ "--r": 10, "--c": isSM ? 4 : 7 }}
+          >
+            <img src={`./assets/20.jpg`} alt={`image 20`} />
+          </div>
         </div>
-        
-        
-    </>
-  )
-}
 
-export default PhotoSection
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-2">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-center text-white" style={{webkitTextStroke: "0.2px black"}}>
+            Memorable Moments
+          </h1>
+          <h1 className="text-base sm:text-lg lg:text-2xl font-bold text-center text-white">
+            Relive our cherished memories through a captivating photo gallery.
+          </h1>
+          <div className="flex justify-center items-center w-full">
+            <button
+              className="group bg-white text-black rounded-full px-5 py-3 font-bold flex justify-center items-center gap-2 mt-5"
+              onClick={() => navigate("/photo-gallery")}
+            >
+              Photo Gallery
+              <TiArrowRight className="text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default PhotoSection;
