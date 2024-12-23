@@ -54,7 +54,7 @@ const PhotoSection = () => {
 
   return (
     <>
-      <div className="w-full h-fit relative pt-10">
+      <div className="w-full h-fit relative pt-24">
         <div className="grid lg:grid-cols-8 grid-cols-4 grid-rows-20 gap-2 overflow-hidden">
           <div
             className="elem col-span-1 row-span-1"
@@ -179,7 +179,7 @@ const PhotoSection = () => {
         </div>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-2">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-center text-white" style={{webkitTextStroke: "0.2px black"}}>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-center text-white" style={{WebkitTextStroke: "0.2px black"}}>
             Memorable Moments
           </h1>
           <h1 className="text-base sm:text-lg lg:text-2xl font-bold text-center text-white">

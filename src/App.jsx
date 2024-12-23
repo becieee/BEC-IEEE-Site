@@ -1,32 +1,17 @@
-import React, { useEffect } from "react";
-import "./App.css";
-import SiteRoutes from "./Routes/SiteRoutes.jsx";
-import Navbar from "./components/NavBar/Navbar.jsx";
-import Lenis from "lenis";
+import React, { useState } from "react";
+import Index from "./Index";
+import CountdownTimer from "./components/CountdownTimer/CountdownTimer";
 
 const App = () => {
-  useEffect(() => {
-    const lenis = new Lenis({
-      autoRaf: true,
-    });
+  const [isLaunched, setIsLaunched] = useState(false);
 
-    lenis.on("scroll", (e) => {
-      console.log(e);
-    });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+  const handleLaunch = () => {
+    setIsLaunched(true);
+  };
 
-    requestAnimationFrame(raf);
-  }, []);
+  const launchTime = "2024-12-24T00:11:00"; // Change this to your desired launch time
 
-  return (
-    <>
-      <Navbar />
-      <SiteRoutes />
-    </>
-  );
+  return isLaunched ? <Index /> : <CountdownTimer launchTime={launchTime} onLaunch={handleLaunch} />;
 };
 
 export default App;

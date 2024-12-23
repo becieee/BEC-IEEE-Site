@@ -25,7 +25,7 @@ const Popup = ({ text }) => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white text-black w-80 px-4 py-2 rounded-lg shadow-lg border border-gray-600"
+            className="bg-white text-black sm:w-80 w-64 px-4 py-2 rounded-lg shadow-lg border border-gray-600"
           >
             {text}
           </motion.div>

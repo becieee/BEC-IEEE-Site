@@ -105,13 +105,13 @@ const UnderConstruction = () => {
       />
 
       <div
-      className='bg-[#1a1a1a] absolute top-1/2 left-1/2 text-center z-10 px-10 py-5 rounded-lg'
+      className='bg-[#1a1a1a] w-[95%] sm:w-fit absolute top-1/2 left-1/2 text-center z-10 sm:px-10 px-2 py-5 rounded-lg'
         style={{
           transform: 'translate(-50%, -50%)',
         }}
       >
-        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Almost There...</h1>
-        <p style={{ fontSize: '1rem', color: '#bbbbbb' }}>
+        <h1 style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>Almost There...</h1>
+        <p style={{ fontSize: '1.3rem', color: '#bbbbbb' }}>
           Our team is working hard to bring you something amazing. Hang tight and check back soon for the big reveal!
         </p>
       </div>

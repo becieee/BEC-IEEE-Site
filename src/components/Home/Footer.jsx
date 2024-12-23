@@ -2,6 +2,7 @@ import React from 'react';
 import { CiInstagram } from "react-icons/ci";
 import { CiLinkedin } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -62,7 +63,8 @@ const Footer = () => {
       </div>
       <div className="mt-10 text-center text-sm text-gray-400">
         <p>© All rights reserved BEC IEEE</p>
-        <p>Crafted with ❤️ & passion by BEC IEEE Web Team 2024</p>
+        <p>Crafted with ❤️ & passion by <Link to={"/execoms/Web-team/2024"} className='underline text-[#A548B1]'>BEC IEEE Web Team 2024</Link>
+        </p>
       </div>
     </footer>
   );
