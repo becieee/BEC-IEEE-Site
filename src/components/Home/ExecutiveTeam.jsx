@@ -19,75 +19,78 @@ import RahulBg from "./assets/Rahul.jpg";
 const ExecutiveTeam = () => {
   const [navigate, setNavigate] = useState(false);
 
-  useEffect(() => {
-    const t1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".ExecutiveTeam",
-        start: "top 80%",
-        end: "top 20%",
-        scrub: true,
-      },
-    });
+  // useEffect(() => {
+  //   const t1 = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".ExecutiveTeam",
+  //       start: "top 80%",
+  //       end: "top 20%",
+  //       scrub: true,
+  //     },
+  //   });
 
-    // Animate the "team" class elements
-    const animeClasses = [".anime1", ".anime2", ".anime3", ".anime4", ".anime5"];
-    animeClasses.forEach((animeClass) => {
-      t1.to(animeClass, { opacity: 1 });
-    });
+  //   // Animate the "team" class elements
+  //   const animeClasses = [".anime1", ".anime2", ".anime3", ".anime4", ".anime5"];
+  //   animeClasses.forEach((animeClass) => {
+  //     t1.to(animeClass, { opacity: 1 });
+  //   });
 
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        const t2 = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".ExecutiveTeam",
-            start: "top -5%",
-            end: "bottom -100%",
-            scrub: true,
-            pin: true,
-          },
-        });
+  //   const handleResize = () => {
+  //     if (window.innerWidth >= 1024) {
+  //       const t2 = gsap.timeline({
+  //         scrollTrigger: {
+  //           trigger: ".ExecutiveTeam",
+  //           start: "top -5%",
+  //           end: "bottom -100%",
+  //           scrub: true,
+  //           pin: true,
+  //         },
+  //       });
 
-        t2.fromTo(
-          [".mem1", ".title1", ".img1", ".mem2", ".title2", ".img2", ".mem3", ".title3", ".img3", ".mem4", ".title4", ".img4", ".mem5", ".title5", ".img5"],
-          { y: 500, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.2, duration: 0.5, ease: "power2.out" }
-        );
+  //       t2.fromTo(
+  //         [".mem1", ".title1", ".img1", ".mem2", ".title2", ".img2", ".mem3", ".title3", ".img3", ".mem4", ".title4", ".img4", ".mem5", ".title5", ".img5"],
+  //         { y: 500, opacity: 0 },
+  //         { y: 0, opacity: 1, stagger: 0.2, duration: 0.5, ease: "power2.out" }
+  //       );
 
-        return () => {
-          t2.kill(); // Kill timeline on component unmount
-        };
-      }
-    };
+  //       return () => {
+  //         t2.kill(); // Kill timeline on component unmount
+  //       };
+  //     }
+  //   };
 
-    handleResize(); // Call on mount
-    window.addEventListener('resize', handleResize); // Add resize event listener
+  //   handleResize(); // Call on mount
+  //   window.addEventListener('resize', handleResize); // Add resize event listener
 
-    // Cleanup
-    return () => {
-      t1.kill(); // Kill timeline on component unmount
-      window.removeEventListener('resize', handleResize); // Remove event listener on unmount
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Remove scroll triggers
-    };
-  }, []);
+  //   // Cleanup
+  //   return () => {
+  //     t1.kill(); // Kill timeline on component unmount
+  //     window.removeEventListener('resize', handleResize); // Remove event listener on unmount
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Remove scroll triggers
+  //   };
+  // }, []);
+
+  if (navigate) {
+    return <Navigate to="/execoms" />;
+  }
 
   return (
     <>
-      {navigate && <Navigate to="/execoms" />}
       <div className="ExecutiveTeam h-fit max-w-[90rem] lg:px-5 sm:px-8 px-5 mx-auto mt-10 pt-10">
         <div className="lg:h-[33vmin] h-fit flex items-center">
           <div className="xl:w-[55%] lg:w-[48%] w-full">
-            <h1 className="anime1 opacity-0 xl:text-[3.62rem] lg:text-5xl md:text-6xl sm:text-5xl text-3xl font-bold">
+            <h1 className="anime1 xl:text-[3.62rem] lg:text-5xl md:text-6xl sm:text-5xl text-3xl font-bold">
               THE EXECUTIVE TEAM
             </h1>
-            <h1 className="anime2 opacity-0 xl:text-[3.62rem] lg:text-5xl md:text-6xl sm:text-5xl text-3xl font-thin">
+            <h1 className="anime2 xl:text-[3.62rem] lg:text-5xl md:text-6xl sm:text-5xl text-3xl font-thin">
               YOU'VE BEEN
             </h1>
-            <h1 className="anime3 opacity-0 xl:text-[3.62rem] lg:text-5xl md:text-6xl sm:text-5xl text-3xl font-thin">
+            <h1 className="anime3 xl:text-[3.62rem] lg:text-5xl md:text-6xl sm:text-5xl text-3xl font-thin">
               LOOKING FOR
             </h1>
           </div>
           <div className="xl:w-[45%] lg:w-[52%] hidden lg:block pl-20 text-justify">
-            <p className="anime4 opacity-0 lg:text-sm">
+            <p className="anime4 lg:text-sm">
               Our executive team is the backbone of our branch, leading with
               passion, innovation, and a relentless commitment to excellence.
               Each member plays a vital role in driving our vision forward,
@@ -96,11 +99,11 @@ const ExecutiveTeam = () => {
               Dive deeper and discover the brilliant minds shaping our journey!
             </p>
             <button 
-              className="anime5 opacity-0 group bg-white text-black rounded-full px-5 py-3 font-bold flex justify-center items-center gap-2 mt-5"
+              className="anime5 group bg-white text-black rounded-full px-5 py-3 font-bold flex justify-center items-center gap-2 mt-5"
               onClick={() => setNavigate(true)}
             >
               MEET OUR EXECOM
-              <TiArrowRight className="text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <TiArrowRight className="text-3xl group-hover:opacity-100 transition-opacity duration-300" />
             </button>
           </div>
         </div>
@@ -225,7 +228,7 @@ const ExecutiveTeam = () => {
         </div>
 
         <div className="lg:hidden w-full px-5 sm:text-justify mt-10">
-            <p className="anime4 opacity-0 lg:text-sm">
+            <p className="anime4  lg:text-sm">
               Our executive team is the backbone of our branch, leading with
               passion, innovation, and a relentless commitment to excellence.
               Each member plays a vital role in driving our vision forward,
@@ -234,11 +237,11 @@ const ExecutiveTeam = () => {
               Dive deeper and discover the brilliant minds shaping our journey!
             </p>
             <button 
-              className="anime5 opacity-0 group bg-white text-black rounded-full px-5 py-3 font-bold flex justify-center items-center gap-2 mt-5"
+              className="anime5  group bg-white text-black rounded-full px-5 py-3 font-bold flex justify-center items-center gap-2 mt-5"
               onClick={() => setNavigate(true)}
             >
               MEET OUR EXECOM
-              <TiArrowRight className="text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <TiArrowRight className="text-3xl  group-hover:opacity-100 transition-opacity duration-300" />
             </button>
         </div>
 

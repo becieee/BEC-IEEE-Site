@@ -65,7 +65,7 @@ const Navbar = () => {
         </div>
       </div>
       </div>
-      <div className="sticky top-0 lg:hidden bg-black w-full h-20 z-10 backdrop-blur-sm backdrop-filter">
+      <div className="sticky top-0 lg:hidden bg-black w-full h-20 z-[99] backdrop-blur-sm backdrop-filter">
         <div className="flex justify-between items-center h-20 px-5">
           <div onClick={() => { setActiveLink("/"); setMenuOpen(false); }}>
             <Link to="/" onClick={() => setActiveLink("/")} className="flex justify-start items-center text-white gap-3">
@@ -79,7 +79,7 @@ const Navbar = () => {
         </div>
         <div className="w-full h-[1px] bg-zinc-600"></div>
         {menuOpen && (
-          <div ref={menuRef} className="absolute flex flex-col px-5 text-lg gap-2 py-2 right-0 w-full sm:w-[60%] bg-[#0A0011] backdrop-blur-sm backdrop-filter text-white z-10">
+          <div ref={menuRef} className="absolute flex flex-col px-5 text-lg gap-2 py-2 right-0 w-full sm:w-[60%] bg-[#0A0011] backdrop-blur-sm backdrop-filter text-white z-[99]">
             <Link to="/" onClick={() => { setActiveLink("/"); setMenuOpen(false); }}>Home</Link>
             <div className="w-full h-[1px] bg-zinc-600"></div>
             <Link to="/about" onClick={() => { setActiveLink("/about"); setMenuOpen(false); }}>About</Link>

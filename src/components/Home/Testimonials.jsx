@@ -23,7 +23,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-black h-fit flex flex-col justify-center items-center text-white py-16">
+    <section className="bg-black h-fit flex flex-col justify-center items-center text-white py-16 my-24">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-5xl font-bold mb-10">
           Inspiring Words from <br /> Leaders & Innovators
