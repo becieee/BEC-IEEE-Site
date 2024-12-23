@@ -32,9 +32,13 @@ const CountdownTimer = ({ launchTime, onLaunch }) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
+    <div className="flex flex-col items-center justify-center min-h-screen text-white" 
+    style={{
+      backgroundImage:
+        "radial-gradient(ellipse 100% 100% at 50% 0%, #34045B 0%, #0A0011 80%)",
+    }}>
       <h1 className="text-4xl font-extrabold mb-6 animate-pulse">🚀 Launching Soon...</h1>
-      <div className="flex space-x-4 text-3xl font-semibold bg-white text-indigo-500 rounded-lg px-6 py-4 shadow-lg">
+      <div className="flex space-x-4 text-3xl font-semibold bg-black text-white rounded-lg px-6 py-4 shadow-lg">
         <div className="flex flex-col items-center">
           <span className="text-5xl font-bold">{timeLeft.hours}</span>
           <span className="text-sm uppercase tracking-wider">Hours</span>

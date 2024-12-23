@@ -14,43 +14,40 @@ const PhotoSection = () => {
   useEffect(() => {
     const updateGridValues = () => {
       const width = window.innerWidth;
-      if ( width < 1024 ) {
-        setIsSM(true);
-      } else {
-        setIsSM(false);
-      }
+      setIsSM(width < 1024);
     };
 
     updateGridValues();
-    window.addEventListener("resize", updateGridValues);
+    const handleResize = debounce(updateGridValues, 100);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", updateGridValues);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  useEffect(() => {
-    document.querySelectorAll(".elem").forEach(elem => {
-      let image = elem.querySelector("img")
-      let tl = gsap.timeline()
+  // useEffect(() => {
+  //   document.querySelectorAll(".elem").forEach(elem => {
+  //     let image = elem.querySelector("img")
+  //     let tl = gsap.timeline()
 
-      let xTransform = gsap.utils.random(-100, 100);
+  //     let xTransform = gsap.utils.random(-100, 100);
 
-      tl.set(image,{
-        transformOrigin: `${xTransform < 0 ? 0 : '100%'}`,
-      },"start")
-      .to(image, {
-        scale: 0,
-        ease:"none",
-        scrollTrigger: {
-          trigger:image,
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      },"start")
-    })
-  },[])
+  //     tl.set(image,{
+  //       transformOrigin: `${xTransform < 0 ? 0 : '100%'}`,
+  //     },"start")
+  //     .to(image, {
+  //       scale: 0,
+  //       ease:"none",
+  //       scrollTrigger: {
+  //         trigger:image,
+  //         start: "top top",
+  //         end: "bottom top",
+  //         scrub: true
+  //       }
+  //     },"start")
+  //   })
+  // },[])
 
   return (
     <>
@@ -198,6 +195,16 @@ const PhotoSection = () => {
       </div>
     </>
   );
+};
+
+const debounce = (func, delay) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
 };
 
 export default PhotoSection;
