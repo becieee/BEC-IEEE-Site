@@ -9,7 +9,7 @@ const App = () => {
     setIsLaunched(true);
   };
 
-  const launchTime = "2024-12-24T19:00:00"; // Change this to your desired launch time
+  const launchTime = "2024-12-24T18:59:00"; // Change this to your desired launch time
 
   return isLaunched ? <Index /> : <CountdownTimer launchTime={launchTime} onLaunch={handleLaunch} />;
 };
