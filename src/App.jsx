@@ -1,17 +1,43 @@
-import React, { useState } from "react";
-import Index from "./Index";
-import CountdownTimer from "./components/CountdownTimer/CountdownTimer";
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import SiteRoutes from "./Routes/SiteRoutes.jsx";
+import Navbar from "./components/NavBar/Navbar.jsx";
+import Lenis from "lenis";
+import Loader from "./components/Loader/Loader.jsx";
 
 const App = () => {
-  const [isLaunched, setIsLaunched] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const handleLaunch = () => {
-    setIsLaunched(true);
-  };
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
 
-  const launchTime = "2024-12-24T19:00:00"; // Change this to your desired launch time
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
 
-  return isLaunched ? <Index /> : <CountdownTimer launchTime={launchTime} onLaunch={handleLaunch} />;
+    requestAnimationFrame(raf);
+
+    // Simulate a loading time (e.g., 2 seconds)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 6500);
+
+    return () => clearTimeout(timer); // Clean up the timer
+  }, []);
+
+  if (loading) {
+    return <Loader />; // Show the loader
+  }
+
+  return (
+    <>
+      <Navbar />
+      <SiteRoutes />
+    </>
+  );
 };
 
 export default App;

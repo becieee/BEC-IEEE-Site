@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
 import { Link, Navigate } from "react-router-dom";
+import BecLogo from "/assets/beclogo.png"
+
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("/");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -69,7 +71,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20 px-5">
           <div onClick={() => { setActiveLink("/"); setMenuOpen(false); }}>
             <Link to="/" onClick={() => setActiveLink("/")} className="flex justify-start items-center text-white gap-3">
-              <img src="./assets/beclogo.png" alt="Logo" className="h-14 w-auto" />
+              <img src={BecLogo} alt="Logo" className="h-14 w-auto" />
               <h1 className="hidden sm:block text-2xl font-bold">BEC IEEE</h1>
             </Link>
           </div>

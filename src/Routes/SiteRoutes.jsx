@@ -20,8 +20,10 @@ const SiteRoutes = () => {
         <Route path="/affinities" element={<UnderConstruction />} />
         <Route path="/membership" element={<UnderConstruction />} />
         <Route path="/photo-gallery" element={<UnderConstruction />} />
-        <Route path="/execoms/:team/:year" element={<Execoms />} />
-        <Route path="/*" element={<Notfound />} />
+        <Route path="/joinIEEE" element={<UnderConstruction />} />
+        <Route path="/execoms/:team/:year" element={<UnderConstruction />} />
+
+        <Route path="/*" element={<Home />} />
       </Routes>
     </>
   );
