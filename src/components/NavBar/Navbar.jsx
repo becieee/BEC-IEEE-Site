@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
 import { Link, Navigate } from "react-router-dom";
-import BecLogo from "../../../public/assets/beclogo.png"
+import BecLogo from "/assets/beclogo.png"
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("/");
