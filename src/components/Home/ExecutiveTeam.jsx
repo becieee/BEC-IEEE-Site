@@ -125,7 +125,7 @@ const ExecutiveTeam = () => {
           <div className="mem2 xl:w-[20%] lg:w-[25%] h-[85%] bg-[#CBD5D4] rounded-full flex flex-col justify-end items-center">
             <div className="title2">
               <h1 className="text-center text-2xl font-bold text-black">
-                Sambhav Osawal
+                Sambhav Oswal
               </h1>
               <h1 className="text-center text-lg text-black">Chairperson</h1>
             </div>
