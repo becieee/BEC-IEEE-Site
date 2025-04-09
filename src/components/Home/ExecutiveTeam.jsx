@@ -192,7 +192,7 @@ const ExecutiveTeam = () => {
 
           <div className="bg-gray-200 rounded-md h-48 w-40 sm:h-64 sm:w-56 flex flex-col justify-end items-center border-4 border-zinc-700" style={{backgroundImage: `url(${SambhavBg})`, backgroundSize: 'cover'}}>
             <div className="bg-black w-full text-center rounded-b-md">
-              <h2 className="text-md font-semibold">Sambhav Osawal</h2>
+              <h2 className="text-md font-semibold">Sambhav Oswal</h2>
               <p className="text-sm">Chairperson</p>
             </div>
           </div>
