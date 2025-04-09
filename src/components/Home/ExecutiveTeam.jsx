@@ -80,7 +80,7 @@ const ExecutiveTeam = () => {
         <div className="lg:h-[33vmin] h-fit flex items-center">
           <div className="xl:w-[55%] lg:w-[48%] w-full">
             <h1 className="anime1 xl:text-[3.62rem] lg:text-5xl md:text-6xl sm:text-5xl text-3xl font-bold">
-              THE EXECUTIVE TEAM
+              THE BEC-IEEE EXECUTIVE TEAM
             </h1>
             <h1 className="anime2 xl:text-[3.62rem] lg:text-5xl md:text-6xl sm:text-5xl text-3xl font-thin">
               YOU'VE BEEN
