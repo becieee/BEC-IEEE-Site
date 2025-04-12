@@ -1,20 +1,21 @@
 import React from "react";
 import Home from "../components/Home/Home";
-import { Route, Router, Routes } from "react-router-dom"; // Removed HashRouter import
+import { Route, Routes } from "react-router-dom";
 import UnderConstruction from "../components/UnderConstruction/UnderConstruction";
 import Notfound from "../components/NotFound/Notfound";
 import Execoms from "../components/Execoms/Execoms";
 import ScrollToTop from "../components/NotFound/ScrollToTop";
 import AuthLogin from "../pages/login";
 import AuthRegister from "../pages/register";
-import  CheckAuth from "../components/common"
+import CheckAuth from "../components/common";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "../store/auth-slice";
 import AuthLayout from "../components/auth/layout";
 import QRScanner from "../components/QRScanner";
 import CommitteePage from "../pages/CommitteePage";
-
+// import UnderConstructionExecom from "../components/ExeCom/UnderConstruction";
+// Assuming this is the correct import path
 
 const SiteRoutes = () => {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -56,16 +57,17 @@ const SiteRoutes = () => {
         ></Route>
         {/* <Route path="/operate" element={<QRScanner />} /> */}
         <Route path="/about" element={<UnderConstruction />} />
+     
         <Route path="/events" element={<UnderConstruction />} />
         <Route path="/achievements" element={<UnderConstruction />} />
-        <Route path="/execoms" element={<CommitteePage />} />
+        <Route path="/execoms/2025" element={<CommitteePage />} />
+        <Route path="/execoms/:year" element={<UnderConstruction />} />
         <Route path="/societies" element={<UnderConstruction />} />
         <Route path="/affinities" element={<UnderConstruction />} />
         <Route path="/membership" element={<UnderConstruction />} />
         <Route path="/photo-gallery" element={<UnderConstruction />} />
         <Route path="/joinIEEE" element={<UnderConstruction />} />
-        <Route path="/execoms/:team/:year" element={<UnderConstruction />} />
-
+       
         <Route path="/*" element={<Home />} />
       </Routes>
     </>

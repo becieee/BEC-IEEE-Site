@@ -1,15 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
-import { Link, Navigate } from "react-router-dom";
-import BecLogo from "/assets/beclogo.png"
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import BecLogo from "/assets/beclogo.png";
 
 const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState("/");
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
+
+  const years = ["2025", "2024", "2023", "2022", "2021"];
+
+  // Update dropdown state based on current route
+  useEffect(() => {
+    if (location.pathname.includes('/execoms/')) {
+      setDropdownOpen(true);
+      setActiveLink('/execoms');
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -20,9 +32,12 @@ const Navbar = () => {
         setDropdownOpen(false);
       }
     };
+
     const handleScroll = () => {
       setMenuOpen(false);
+      setDropdownOpen(false);
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -40,48 +55,87 @@ const Navbar = () => {
     { name: "SOCIETIES", path: "/societies", width: "100px" },
     { name: "AFFINITIES", path: "/affinities", width: "110px" },
     { name: "MEMBERSHIP", path: "/membership", width: "140px" },
-    
   ];
 
-  // Get active link index and width
-  const years = Array.from({ length: 9 }, (_, i) => (2024 - i).toString());
   const activeIndex = links.findIndex((link) => link.path === activeLink);
   const activeWidth = links[activeIndex]?.width || "60px";
+
+  const handleYearClick = (year) => {
+    setActiveLink(`/execoms/${year}`);
+    setDropdownOpen(true);
+    navigate(`/execoms/${year}`);
+    setMenuOpen(false);
+  };
+
   return (
     <>
+      {/* Desktop View */}
       <div className="hidden fixed h-36 w-full text-white lg:flex justify-center items-center z-10">
-      {/* Black div with fixed width */}
-      <div className="relative h-12 w-[800px] bg-black rounded-full flex justify-between items-center text-sm font-light gap-10">
-        {/* White indicator div */}
-        <div
-          className="absolute bg-white rounded-full leading-[3rem] h-12 transition-all duration-300 ease-in-out z-0"
-          style={{
-            left: `calc(${activeIndex < 3 ? activeIndex * 75 : activeIndex == 3 ? activeIndex * 79 : activeIndex == 4 ? activeIndex * 93 :  activeIndex * 94 }% / ${links.length})`,
-            width: activeWidth,
-          }}
-        ></div>
-        {/* Navigation links */}
-        <div className="absolute w-full h-12 flex justify-between items-center z-10 px-5">
-          {links.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setActiveLink(link.path)}
-              className={`transition-all duration-300 ${
-                activeLink === link.path ? "text-black font-bold" : "text-white"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-             
+        <div className="relative h-12 w-[800px] bg-black rounded-full flex justify-between items-center text-sm font-light gap-10">
+          <div
+            className="absolute bg-white rounded-full leading-[3rem] h-12 transition-all duration-300 ease-in-out z-0"
+            style={{
+              left: `calc(${activeIndex < 3 ? activeIndex * 75 : activeIndex == 3 ? activeIndex * 79 : activeIndex == 4 ? activeIndex * 93 : activeIndex * 94}% / ${links.length})`,
+              width: activeWidth,
+              backgroundColor: (activeLink === '/execoms' || activeLink.includes('/execoms/')) ? 'transparent' : 'white'
+            }}
+          ></div>
+          <div className="absolute w-full h-12 flex justify-between items-center z-10 px-5">
+            {links.map((link) => 
+              link.name === "EXECOMS" ? (
+                <div key={link.path} ref={dropdownRef} className="relative group">
+                  <Link
+                    to={link.path}
+                    onClick={() => {
+                      setActiveLink(link.path);
+                      setDropdownOpen(!dropdownOpen);
+                    }}
+                    className={`transition-all duration-300 ${
+                      dropdownOpen ? "text-black font-bold" : "text-white"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                  {dropdownOpen && (
+                    <div className="absolute top-12 left-0 bg-black rounded-lg py-2 min-w-[100px] z-50">
+                      {years.map((year) => (
+                        <Link
+                          key={year}
+                          to={`/execoms/${year}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleYearClick(year);
+                          }}
+                          className="block w-full text-left px-4 py-2 hover:bg-gray-800 text-white"
+                        >
+                          {year}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setActiveLink(link.path)}
+                  className={`transition-all duration-300 ${
+                    activeLink === link.path ? "text-black font-bold" : "text-white"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
+          </div>
         </div>
       </div>
-      </div>
+
+      {/* Mobile View */}
       <div className="sticky top-0 lg:hidden bg-black w-full h-20 z-[99] backdrop-blur-sm backdrop-filter">
         <div className="flex justify-between items-center h-20 px-5">
           <div onClick={() => { setActiveLink("/"); setMenuOpen(false); }}>
-            <Link to="/" onClick={() => setActiveLink("/")} className="flex justify-start items-center text-white gap-3">
+            <Link to="/" className="flex justify-start items-center text-white gap-3">
               <img src={BecLogo} alt="Logo" className="h-14 w-auto" />
               <h1 className="hidden sm:block text-2xl font-bold">BEC IEEE</h1>
             </Link>
@@ -93,59 +147,67 @@ const Navbar = () => {
         <div className="w-full h-[1px] bg-zinc-600"></div>
         {menuOpen && (
           <div ref={menuRef} className="absolute flex flex-col px-5 text-lg gap-2 py-2 right-0 w-full sm:w-[60%] bg-[#0A0011] backdrop-blur-sm backdrop-filter text-white z-[99]">
-            <Link to="/" onClick={() => { setActiveLink("/"); setMenuOpen(false); }}>Home</Link>
-            <div className="w-full h-[1px] bg-zinc-600"></div>
-            <Link to="/about" onClick={() => { setActiveLink("/about"); setMenuOpen(false); }}>About</Link>
-            <div className="w-full h-[1px] bg-zinc-600"></div>
-            <Link to="/events" onClick={() => { setActiveLink("/events"); setMenuOpen(false); }}>Events</Link>
-            <div className="w-full h-[1px] bg-zinc-600"></div>
-            <Link to="/achievements" onClick={() => { setActiveLink("/achievements"); setMenuOpen(false); }}>Achievements</Link>
-            <div className="w-full h-[1px] bg-zinc-600"></div>
-            <div ref={dropdownRef} className="relative">
-              <button
-                onClick={() => {
-                  setDropdownOpen(!dropdownOpen);
-                  setActiveLink("/execoms");
-                  setMenuOpen(false);
-                }}
-                className="w-full text-left"
-              >
-                Execoms
-              </button>
-              {dropdownOpen && (
-                <div className="absolute top-full right-0 bg-[#0A0011] text-white py-2 px-3">
-                  {years.map((year) => (
+            {links.map((link) => (
+              <React.Fragment key={link.path}>
+                {link.name === "EXECOMS" ? (
+                  <>
+                    <div className="relative">
+                      <button
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        className="w-full text-left flex items-center justify-between text-white"
+                      >
+                        <span>Execoms</span>
+                        <span className="transform transition-transform duration-200">
+                          {dropdownOpen ? "▼" : "▶"}
+                        </span>
+                      </button>
+                      {dropdownOpen && (
+                        <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-700">
+                          {years.map((year) => (
+                            <button
+                              key={year}
+                              onClick={() => {
+                                setActiveLink(`/execoms/${year}`);
+                                navigate(`/execoms/${year}`);
+                                setMenuOpen(false);
+                                setDropdownOpen(false);
+                              }}
+                              className={`block w-full text-left py-1 hover:text-gray-300 transition-colors duration-200 ${
+                                activeLink === `/execoms/${year}` ? 'text-gray-300' : 'text-white'
+                              }`}
+                            >
+                              {year}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div className="w-full h-[1px] bg-zinc-600"></div>
+                  </>
+                ) : (
+                  <>
                     <Link
-                      key={year}
-                      to={`/execoms/${year}`}
+                      to={link.path}
                       onClick={() => {
-                        setActiveLink(`/execoms/${year}`);
-                        setDropdownOpen(false);
+                        setActiveLink(link.path);
+                        setMenuOpen(false);
                       }}
-                      className="block py-1"
+                      className={`block py-1 ${
+                        activeLink === link.path ? 'text-gray-300' : 'text-white'
+                      }`}
                     >
-                      {year}
+                      {link.name}
                     </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="w-full h-[1px] bg-zinc-600"></div>
-            <Link to="/societies" onClick={() => { setActiveLink("/societies"); setMenuOpen(false); }}>Societies</Link>
-            <div className="w-full h-[1px] bg-zinc-600"></div>
-            <Link to="/affinities" onClick={() => { setActiveLink("/affinities"); setMenuOpen(false); }}>Affinities</Link>
-            <div className="w-full h-[1px] bg-zinc-600"></div>
-            <Link to="/membership" onClick={() => { setActiveLink("/membership"); setMenuOpen(false); }}>Membership</Link>
-            <div className="w-full h-[1px] bg-zinc-600"></div>
-            <Link to="/auth" onClick={() => { setActiveLink("/auth"); setMenuOpen(false); }}>00</Link>
-           
+                    <div className="w-full h-[1px] bg-zinc-600"></div>
+                  </>
+                )}
+              </React.Fragment>
+            ))}
           </div>
         )}
       </div>
-      
-    
     </>
-    
   );
 };
+
 export default Navbar;

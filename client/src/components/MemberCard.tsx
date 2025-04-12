@@ -1,69 +1,3 @@
-
-// import React from 'react';
-// import type { Member } from '../data/committees';
-// import { FaLinkedin } from 'react-icons/fa';
-// import { MdEmail } from 'react-icons/md';
-
-// type MemberCardProps = Member;
-
-// const MemberCard = ({ image, name, designation, linkedin,email, portfolio }: MemberCardProps) => {
-//   return (
-//     <div className="bg-gray-800/40 backdrop-blur-sm rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl border border-purple-500/10">
-//       <div className="aspect-w-1 aspect-h-1">
-//         <img src={image} alt={name} className="w-full h-full object-cover" />
-//       </div>
-//       <div className="p-2.5 sm:p-3">
-//         <h3 className="text-base sm:text-lg font-semibold text-white truncate leading-snug">
-//           {name}
-//         </h3>
-//         <p className="text-xs sm:text-sm text-purple-200/70 truncate leading-relaxed">
-//           {designation}
-//         </p>
-
-//         {/* Social Links & Know More Button in One Row */}
-//         <div className="flex items-center justify-between mt-3">
-//           {/* Icons aligned in a row */}
-//           <div className="flex gap-3">
-//             {linkedin && (
-//               <a
-//                 href={linkedin}
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="text-blue-400 hover:scale-110 transition"
-//               >
-//                 <FaLinkedin className="h-6 w-6" />
-//               </a>
-//             )}
-//             {email && (
-//           <a
-//            href={`mailto:${email}`}
-//             target="_blank"
-//            rel="noopener noreferrer"
-//            className="text-green-400 hover:scale-110 transition"
-//            >
-//          <MdEmail className="h-6 w-6" />
-//          </a>
-//             )}
-//           </div>
-
-//           {/* "Know More" Button */}
-//           {portfolio && (
-//             <a
-//               href={portfolio}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="bg-purple-500 text-white px-3 py-1 rounded-lg text-sm hover:bg-purple-600 transition"
-//             >
-//               Know More
-//             </a>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MemberCard;
 import React from 'react';
 import type { Member } from '../data/committees';
 import { FaLinkedin } from 'react-icons/fa';
@@ -73,60 +7,66 @@ type MemberCardProps = Member;
 
 const MemberCard = ({ image, name, designation, linkedin, email, portfolio }: MemberCardProps) => {
   return (
-    <div className="bg-gray-800/40 backdrop-blur-sm rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl border border-purple-500/10 min-h-[250px] flex flex-col">
-      {/* Image Container with Fixed Size */}
-      <div className="w-full h-100 overflow-hidden">
-        <img src={image} alt={name} className="w-full h-full object-cover" />
-      </div>
+    <div className="w-full px-4 sm:w-[250px] mx-auto mb-6">
+      {/* Card Container */}
+      <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+        {/* Main Image */}
+        <img 
+          src={image} 
+          alt={name} 
+          className="w-full h-full object-cover object-center brightness-90 group-hover:brightness-100 transition-all duration-300"
+        />
 
-      {/* Content */}
-      <div className="p-3 flex flex-col flex-grow justify-between">
-        <div>
-          <h3 className="text-base sm:text-lg font-semibold text-white truncate leading-snug">
-            {name}
-          </h3>
-          <p className="text-xs sm:text-sm text-purple-200/70 truncate leading-relaxed">
-            {designation}
-          </p>
-        </div>
-
-        {/* Social Links & Know More Button in One Row */}
-        <div className="flex items-center justify-between w-full  mt-3">
-          {/* Icons aligned in a row */}
-          <div className="flex items-center  gap-3">
+        {/* Content Overlay - Always Visible */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/30 transition-all duration-300">
+          {/* Social Links - Appear on Hover */}
+          <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
             {linkedin && (
               <a
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-400 hover:scale-110 transition"
+                className="bg-white/20 p-2 rounded-full text-white hover:bg-white/30 hover:scale-110 transition-all duration-300"
               >
-                <FaLinkedin className="h-6 w-6 mb-1" />
+                <FaLinkedin className="h-5 w-5" />
               </a>
             )}
             {email && (
               <a
                 href={`mailto:${email}`}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-400 hover:scale-110 transition"
+                className="bg-white/20 p-2 rounded-full text-white hover:bg-white/30 hover:scale-110 transition-all duration-300"
               >
-                <MdEmail className="h-8 w-7 mr-2 mb-1" />
+                <MdEmail className="h-5 w-5" />
               </a>
             )}
           </div>
 
-          {/* "Know More" Button */}
+          {/* Explore Button - Appear on Hover */}
           {portfolio && (
-            <a
-              href={portfolio}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-purple-500 text-white px-2 py-1   mb-1 rounded-lg text-sm block  hover:bg-purple-600 transition"
-            >
-              Know More
-            </a>
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+              <a
+                href={portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 hover:scale-105 transition-all duration-300"
+              >
+                Explore
+              </a>
+            </div>
           )}
         </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-purple-500/30 to-transparent transform rotate-45 translate-x-8 -translate-y-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute bottom-0 left-0 w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-tr from-purple-500/30 to-transparent transform -rotate-45 -translate-x-8 translate-y-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+
+      {/* Name and Designation - Below Card */}
+      <div className="mt-4 text-center">
+        <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">{name}</h3>
+        <p className="text-sm text-purple-200 group-hover:text-purple-100 transition-colors duration-300">{designation}</p>
       </div>
     </div>
   );
