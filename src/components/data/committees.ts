@@ -155,7 +155,7 @@ export const committees: Committee[] = [
         name: "Prajwal Shettar",
         designation: "Webmaster",
         image: `${prajwal}`,
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/prajwalshettar43",
         portfolio: "https://www.linkedin.com/in/prajwalshettar43",
         email: "prajwalshettar43@gmail.com",
       },
