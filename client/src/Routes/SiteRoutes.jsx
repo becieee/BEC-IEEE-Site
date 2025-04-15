@@ -57,11 +57,10 @@ const SiteRoutes = () => {
         ></Route>
         {/* <Route path="/operate" element={<QRScanner />} /> */}
         <Route path="/about" element={<UnderConstruction />} />
-     
+       
         <Route path="/events" element={<UnderConstruction />} />
         <Route path="/achievements" element={<UnderConstruction />} />
-        <Route path="/execoms/2025" element={<CommitteePage />} />
-        <Route path="/execoms/:year" element={<UnderConstruction />} />
+        <Route path="/execoms" element={<CommitteePage />} />
         <Route path="/societies" element={<UnderConstruction />} />
         <Route path="/affinities" element={<UnderConstruction />} />
         <Route path="/membership" element={<UnderConstruction />} />

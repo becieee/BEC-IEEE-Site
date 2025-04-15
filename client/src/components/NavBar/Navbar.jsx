@@ -9,33 +9,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState("/");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const menuRef = useRef(null);
-  const dropdownRef = useRef(null);
-
-  const years = ["2025", "2024", "2023", "2022", "2021"];
-
-  // Update dropdown state based on current route
-  useEffect(() => {
-    if (location.pathname.includes('/execoms/')) {
-      setDropdownOpen(true);
-      setActiveLink('/execoms');
-    }
-  }, [location.pathname]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setMenuOpen(false);
       }
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
-      }
     };
 
     const handleScroll = () => {
       setMenuOpen(false);
-      setDropdownOpen(false);
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -44,7 +28,7 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [menuRef, dropdownRef]);
+  }, [menuRef]);
 
   const links = [
     { name: "HOME", path: "/", width: "80px" },
@@ -60,13 +44,6 @@ const Navbar = () => {
   const activeIndex = links.findIndex((link) => link.path === activeLink);
   const activeWidth = links[activeIndex]?.width || "60px";
 
-  const handleYearClick = (year) => {
-    setActiveLink(`/execoms/${year}`);
-    setDropdownOpen(true);
-    navigate(`/execoms/${year}`);
-    setMenuOpen(false);
-  };
-
   return (
     <>
       {/* Desktop View */}
@@ -77,56 +54,21 @@ const Navbar = () => {
             style={{
               left: `calc(${activeIndex < 3 ? activeIndex * 75 : activeIndex == 3 ? activeIndex * 79 : activeIndex == 4 ? activeIndex * 93 : activeIndex * 94}% / ${links.length})`,
               width: activeWidth,
-              backgroundColor: (activeLink === '/execoms' || activeLink.includes('/execoms/')) ? 'transparent' : 'white'
             }}
           ></div>
           <div className="absolute w-full h-12 flex justify-between items-center z-10 px-5">
-            {links.map((link) => 
-              link.name === "EXECOMS" ? (
-                <div key={link.path} ref={dropdownRef} className="relative group">
-                  <Link
-                    to={link.path}
-                    onClick={() => {
-                      setActiveLink(link.path);
-                      setDropdownOpen(!dropdownOpen);
-                    }}
-                    className={`transition-all duration-300 ${
-                      dropdownOpen ? "text-black font-bold" : "text-white"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                  {dropdownOpen && (
-                    <div className="absolute top-12 left-0 bg-black rounded-lg py-2 min-w-[100px] z-50">
-                      {years.map((year) => (
-                        <Link
-                          key={year}
-                          to={`/execoms/${year}`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            handleYearClick(year);
-                          }}
-                          className="block w-full text-left px-4 py-2 hover:bg-gray-800 text-white"
-                        >
-                          {year}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setActiveLink(link.path)}
-                  className={`transition-all duration-300 ${
-                    activeLink === link.path ? "text-black font-bold" : "text-white"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              )
-            )}
+            {links.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setActiveLink(link.path)}
+                className={`transition-all duration-300 ${
+                  activeLink === link.path ? "text-black font-bold" : "text-white"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -149,58 +91,19 @@ const Navbar = () => {
           <div ref={menuRef} className="absolute flex flex-col px-5 text-lg gap-2 py-2 right-0 w-full sm:w-[60%] bg-[#0A0011] backdrop-blur-sm backdrop-filter text-white z-[99]">
             {links.map((link) => (
               <React.Fragment key={link.path}>
-                {link.name === "EXECOMS" ? (
-                  <>
-                    <div className="relative">
-                      <button
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
-                        className="w-full text-left flex items-center justify-between text-white"
-                      >
-                        <span>Execoms</span>
-                        <span className="transform transition-transform duration-200">
-                          {dropdownOpen ? "▼" : "▶"}
-                        </span>
-                      </button>
-                      {dropdownOpen && (
-                        <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-700">
-                          {years.map((year) => (
-                            <button
-                              key={year}
-                              onClick={() => {
-                                setActiveLink(`/execoms/${year}`);
-                                navigate(`/execoms/${year}`);
-                                setMenuOpen(false);
-                                setDropdownOpen(false);
-                              }}
-                              className={`block w-full text-left py-1 hover:text-gray-300 transition-colors duration-200 ${
-                                activeLink === `/execoms/${year}` ? 'text-gray-300' : 'text-white'
-                              }`}
-                            >
-                              {year}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    <div className="w-full h-[1px] bg-zinc-600"></div>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      to={link.path}
-                      onClick={() => {
-                        setActiveLink(link.path);
-                        setMenuOpen(false);
-                      }}
-                      className={`block py-1 ${
-                        activeLink === link.path ? 'text-gray-300' : 'text-white'
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                    <div className="w-full h-[1px] bg-zinc-600"></div>
-                  </>
-                )}
+                <Link
+                  to={link.path}
+                  onClick={() => {
+                    setActiveLink(link.path);
+                    setMenuOpen(false);
+                  }}
+                  className={`block py-1 ${
+                    activeLink === link.path ? 'text-gray-300' : 'text-white'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+                <div className="w-full h-[1px] bg-zinc-600"></div>
               </React.Fragment>
             ))}
           </div>
