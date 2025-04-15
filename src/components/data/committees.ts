@@ -115,6 +115,14 @@ export const committees: Committee[] = [
         email: "aishuhipparagi@gmail.com",
       },
       {
+        name: "Prerana Bali",
+        designation: "Meeting Coordinator",
+        image: `${prerana}`,
+        linkedin: "https://www.linkedin.com/in/prerana-bali-604400261/",
+        portfolio: "https://v0-prerana-portfolio.vercel.app/",
+        email: "baliprerana@gmail.com",
+      },
+      {
         name: "Apoorva Joshi",
         designation: "Operating Committee Secretary",
         image: `${apporva}`,
@@ -137,15 +145,8 @@ export const committees: Committee[] = [
         linkedin: "https://www.linkedin.com/in/sangamesh-kanabur-770a95292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         portfolio: "https://sangamesh-k.vercel.app/",
         email: "sanguk2005@gmail.com",
-      },
-      {
-        name: "Prerana Bali",
-        designation: "Meeting Coordinator",
-        image: `${prerana}`,
-        linkedin: "https://www.linkedin.com/in/prerana-bali-604400261/",
-        portfolio: "https://v0-prerana-portfolio.vercel.app/",
-        email: "baliprerana@gmail.com",
-      },
+      }
+      
     ],
   },
   {
