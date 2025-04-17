@@ -51,7 +51,7 @@ const Navbar = () => {
           }}
         ></div>
         {/* Navigation links */}
-        <div className="absolute w-full h-12 flex justify-between items-center z-10 px-5">
+        <div className="absolute w-full h-12 flex justify-between items-center z-[100] px-5">
           {links.map((link) => (
             <Link
               key={link.path}
