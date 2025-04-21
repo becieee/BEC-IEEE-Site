@@ -2,7 +2,9 @@ import varun from "../assets/Varun.jpeg"
 import relStep from "../assets/relStep.png"
 import suhana from "../assets/suhana.jpg"
 import megha from "../assets/megha.jpg"
-
+import Souparni from "../assets/Souparni.jpg"
+import chetan from "../assets/chetan.jpg"
+import vishwas from "../assets/vishwas.jpg"
 export const societiesData = [
   {
     id: "rel",
@@ -42,7 +44,7 @@ export const societiesData = [
         email: "varu19@ieee.org",
         linkedin: "https://www.linkedin.com/in/varu19/",
         website:
-          "https://v0-varun-portfolio-h7u7b8ovy-hellome19001-gmailcoms-projects.vercel.app/",
+          "https://v0-engineering-portfolio.vercel.app/",
       },
       {
         id: "100676039",
@@ -56,6 +58,46 @@ export const societiesData = [
         linkedin:
           "https://www.linkedin.com/in/suhana-n-9181ab293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         website: "",
+      },
+    ],
+  },
+  {
+    id: "cs",
+    name: "COMPUTER SOCIETY",
+    totalMembers: 41,
+    totalPublications: 930000,
+    shortDescription:
+      "Empowering Computer Science and Engineering Professionals to Fuel Continued Advancement.",
+    description:
+      "Engaging computer engineers, scientists, academia, and industry professionals from all areas of computing, the IEEE Computer Society (CS) sets the standard for the education and engagement that fuels continued global technological advancement. Through conferences, publications, and programs, and by bringing together computer science and engineering leaders at every phase of their career for dialogue, debate, and collaboration, IEEE CS empowers, shapes, and guides the future of not only its members, but the greater industry, enabling new opportunities to better serve our world.",
+    logo: "https://ieeecs-media.computer.org/wp-media/2021/12/16190445/IEEE-CS_LogoTM-orange-354x108.png", // You can add a logo URL here if available
+    website: "https://www.computer.org/",
+    vision:
+      "To be the leading provider of technical information, community services, and personalized services to the world's computing professionals.",
+    mission:
+      "The mission of the IEEE Computer Society Standards Activities Board (SAB) is to encourage Computer Society members to participate in standardization activities, to promote the use of IEEE standards, and to develop useful products that leverage IEEE standards within the scope of the Computer Society.",
+    events: [],
+    executiveCommittee: [
+      {
+        id: "99067563",
+        name: "Vishwas S Hittalamani",
+        position: "Chair",
+        image:
+          `${vishwas}`,
+        bio: "Chairman CS Society BEC-IEEE SB | Undergrad Computer Science and Engineering",
+        email: "vishwas987@ieee.org",
+        linkedin: "https://www.linkedin.com/in/vishwas-hittalaman/",
+        website: "https://v0-portfolio-animations.vercel.app/",
+      },
+      {
+        id: "99098177",
+        name: "Chetan Bhavikatti",
+        position: "Vice-Chair",
+        image: `${chetan}`, 
+        bio: "Vice-Chair of BEC IEEE Computer Society, passionate about web development and solving complex problems with a logical approach.",
+        email: "chetanbhavikatti0@ieee.org",
+        linkedin: "https://www.linkedin.com/in/chetan-bhavikatti-492824277/", 
+        website: "https://porfolio-5937e8.webflow.io/",
       },
     ],
   },
@@ -81,7 +123,7 @@ export const societiesData = [
         name: "Souparni Kulkarni",
         position: "Chair",
         image:
-          "https://drive.google.com/file/d/1qkpbdMjUDo2owfdQ8oQhh_PbRcll29ov/view?usp=drivesdk",
+          `${Souparni}`,
         bio: "ECE undergraduate",
         email: "souparnikulkarni06@ieee.org",
         linkedin:
