@@ -1,4 +1,8 @@
 import varun from "../assets/Varun.jpeg"
+import relStep from "../assets/relStep.png"
+import suhana from "../assets/suhana.jpg"
+import megha from "../assets/megha.jpg"
+
 export const societiesData = [
   {
     id: "wie",
@@ -66,7 +70,7 @@ export const societiesData = [
         location: "BEC-STEP, Vidyagiri, Bagalkot, Karnataka, India",
         description:
           "The BEC IEEE Student Branch (STB35261) organized a visit to the Science and Technological Entrepreneurship Park (BEC-STEP) to provide IEEE members with insights into entrepreneurship, innovation, and technological advancements. The visit included:\n\n- An overview of BEC-STEP's role in supporting startups and the incubation facilities available.\n- Interactions with startup founders, discussing their innovative ideas, challenges faced, and business development processes.\n- Understanding the importance of technology-driven entrepreneurship and the role of institutions like BEC-STEP in fostering innovation.\n- Observing ongoing projects, gaining practical insights into real-world applications of engineering and business development.",
-        image: "https://events.vtools.ieee.org/vtools_ui/media/display/dbc6fcb3-b4f6-4a6f-9db6-747349968221",
+        image: `${relStep}`,
         registrationLink: "https://forms.gle/hKY6K6q3uGsXfEmZ8",
       },
     ],
@@ -89,7 +93,7 @@ export const societiesData = [
         name: "Suhana Nadaf",
         position: "Secretary",
         image:
-          "https://drive.google.com/file/d/1432P_Pk3Vb3rwaqaMpjNgWPotZQbfnuD/view?usp=drivesdk",
+          `${suhana}`,
         bio:
           "As a Bachelor's student in Electronics & Communication Engineering, I serve as Secretary of the Reliability Society at BECIEEE Student Branch. I coordinate events, foster a culture of reliability, and strive to enhance academic and professional experiences for students.",
         email: "suhananadaf101@gmail.com",
@@ -163,7 +167,7 @@ export const societiesData = [
         name: "Megha Hadli",
         position: "Chair",
         image:
-          "https://drive.google.com/file/d/1UP9L6CGidjpmFWUhN0ZhZ9Vc3FnLhYYi/view?usp=drivesdk",
+          `${megha}`,
         bio:
           "I'm an undergraduate student pursuing Electronics and Communication Engineering, with a strong interest in VLSI design and semiconductor technologies. Passionate about innovation and leadership, I currently serve as the VTS Chair at BEC IEEE, where I actively promote technical growth and collaboration among peers.",
         email: "Meghaahadli@ieee.org",
