@@ -39,7 +39,7 @@ const Navbar = () => {
   const activeWidth = links[activeIndex]?.width || "60px";
   return (
     <>
-      <div className="hidden fixed h-36 w-full text-white lg:flex justify-center items-center z-10">
+      <div className="hidden fixed h-36 w-full text-white lg:flex justify-center items-center z-[100]">
       {/* Black div with fixed width */}
       <div className="relative h-12 w-[800px] bg-black rounded-full flex justify-between items-center text-sm font-light gap-10">
         {/* White indicator div */}
@@ -51,7 +51,7 @@ const Navbar = () => {
           }}
         ></div>
         {/* Navigation links */}
-        <div className="absolute w-full h-12 flex justify-between items-center z-10 px-5">
+        <div className="absolute w-full h-12 flex justify-between items-center z-[100] px-5">
           {links.map((link) => (
             <Link
               key={link.path}

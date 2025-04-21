@@ -157,7 +157,7 @@ export const committees: Committee[] = [
         designation: "Webmaster",
         image: `${prajwal}`,
         linkedin: "https://www.linkedin.com/in/prajwalshettar43",
-        portfolio: "https://www.linkedin.com/in/prajwalshettar43",
+        portfolio: "https://portfolio-prajwal43.vercel.app/",
         email: "prajwalshettar43@gmail.com",
       },
       {
