@@ -95,7 +95,7 @@ export const societiesData = [
     id: "vts",
     name: "VTS",
     totalMembers: 37,
-    totalPublications: "📙IEEE Transactions on Vehicular Technology\nTotal Articles Published: Approximately 15,565 articles have been published since the journal's inception. ​\nAnnual Publications: In 2023, the journal published 1,537 articles. ​\nCitations: Over its lifetime, It has received 584,856 citations, reflecting its significant impact in the field. ​\nImpact Factor: The journal's 2023 Impact Factor is reported as 6.1, placing it in the Q1 category across multiple disciplines.",
+    totalPublications: 15565,
     shortDescription:
       "The IEEE Vehicular Technology Society is an applications-oriented society of IEEE, with technical activities concentrated around three pillars: Wireless Communications, Land Transportation, and Motor Vehicles.",
     description:
