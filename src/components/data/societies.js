@@ -5,6 +5,9 @@ import megha from "../assets/megha.jpg"
 import Souparni from "../assets/Souparni.jpg"
 import chetan from "../assets/chetan.jpg"
 import vishwas from "../assets/vishwas.jpg"
+import sahitya from "../assets/sahitya.jpg"
+import eashwar from "../assets/eashwar.jpg"
+import vaishnavi from "../assets/vaishnavi.png"
 export const societiesData = [
   {
     id: "rel",
@@ -130,6 +133,87 @@ export const societiesData = [
           "https://www.linkedin.com/in/souparni-kulkarni-a0a3172a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         website:
           "https://v0.dev/chat/portfolio-website-q0HUkVr0tIZ?b=b_NiK9xkAjrB1",
+      },
+    ],
+  },
+  {
+    id: "aess",
+    name: "AESS",
+    totalMembers: 17,
+    shortDescription:
+      "BEC IEEE AESS (Aerospace and Electronic Systems Society) is a student chapter at Basaveshwar Engineering College, Bagalkot, dedicated to promoting interest and innovation in aerospace and electronic systems.",
+    description:
+      "The BEC IEEE Aerospace and Electronic Systems Society (AESS) is a student chapter at Basaveshwar Engineering College, Bagalkot, dedicated to promoting innovation and learning in aerospace and electronic systems. It provides students with opportunities to engage in technical workshops, hands-on projects, expert talks, and competitions, fostering skills in areas like avionics, satellite systems, and embedded electronics. The chapter aims to bridge the gap between classroom knowledge and real-world applications, inspiring future leaders in aerospace and defense technologies.",
+    logo: "https://ieee-aess.org/files/ieeeaess/aess-logo.svg",
+    website: "https://ieee-aess.org/",
+    vision:
+      "To be a dynamic student chapter that fosters innovation, technical excellence, and leadership in aerospace and electronic systems, preparing students to contribute meaningfully to advancements in science, technology, and society.",
+    mission:
+      "To promote practical learning and knowledge in aerospace and electronic systems.\nTo organize workshops, seminars, and hands-on projects for skill development.\nTo foster collaboration and innovation through student-led initiatives.\nTo provide industry exposure and networking opportunities for students.",
+    events: [
+      {
+        id: "aess-event-1",
+        title: "Beyond the Horizons",
+        date: "2025-02-19",
+        location: "Infront of college quadrangle",
+        description: "A flagship event organized by BEC IEEE AESS, aiming to expose students to the latest in aerospace and electronic systems through interactive sessions, expert talks, and project displays.",
+        image: "", // If you have an image URL, you can add it here
+        registrationLink: "", // If there's a form, include link
+      },
+    ],
+    executiveCommittee: [
+      {
+        id: "99999901",
+        name: "Darur Eashwar",
+        position: "Chair",
+        image: `${eashwar}`,
+        bio: "Chair BEC-IEEE AESS (SBC35261D)",
+        email: "eashwardarur5@ieee.org",
+        linkedin:
+          "https://www.linkedin.com/in/eashwar-darur-6b1748277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "",
+      },
+      {
+        id: "100143672",
+        name: "Vaishnavi Amate",
+        position: "Secretary",
+        image:
+          `${vaishnavi}`,
+        bio: "Aspiring Electronics Engineer | ECE Undergraduate at Basaveshwar Engineering College | AESS Society Student chapter (35261-D) Secretary",
+        email: "vaishnaviamate682@ieee.org",
+        linkedin:
+          "https://www.linkedin.com/in/vaishnavi-amate-528a94292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "",
+      },
+    ],
+  },
+  {
+    id: "ras",
+    name: "RAS TEAM",
+    totalMembers: 5,
+    totalPublications:0,
+    shortDescription:
+      "The IEEE Robotics and Automation Society fosters progress in robotics and automation science, supporting research, learning, and professional excellence.",
+    description:
+      "The IEEE Robotics and Automation Society's objectives are scientific, literary and educational in character. The Society strives for the advancement of the theory and practice of robotics and automation engineering and science and of the allied arts and sciences, and for the maintenance of high professional standards among its members, all in consonance with the Constitution and Bylaws of the IEEE and with special attention to such aims within the Field of Interest of the Society.",
+    logo: "https://entrepreneurship.ieee.org/wp-content/uploads/2016/04/IEEE-RAS-logo_4C_stacked.jpg",
+    website: "https://www.ieee-ras.org/",
+    vision:
+      "Our Vision is to be the most recognized and respected global organization in Robotics and Automation.",
+    mission:
+      "Our Mission is to foster the development and facilitate the exchange of scientific and technological knowledge in Robotics and Automation that benefits members, the profession and humanity.",
+    events: [],
+    executiveCommittee: [
+      {
+        id: "99048259",
+        name: "Sahitya Papanal",
+        position: "Chair",
+        image: `${sahitya}`, // No image link provided
+        bio: "CHAIR BEC-IEEE RAS | AIML UNDERGRADUATE",
+        email: "sahityapapanal@gmail.com",
+        linkedin:
+          "https://www.linkedin.com/in/sahitya-papanal-2b1066266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "https://sahityapapanal.vercel.app/",
       },
     ],
   },
