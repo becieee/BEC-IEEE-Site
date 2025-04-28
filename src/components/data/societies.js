@@ -8,6 +8,7 @@ import vishwas from "../assets/vishwas.jpg"
 import sahitya from "../assets/sahitya.jpg"
 import eashwar from "../assets/eashwar.jpg"
 import vaishnavi from "../assets/vaishnavi.png"
+import beyond from "../assets/beyond.jpg"
 export const societiesData = [
   {
     id: "rel",
@@ -157,7 +158,7 @@ export const societiesData = [
         date: "2025-02-19",
         location: "Infront of college quadrangle",
         description: "A flagship event organized by BEC IEEE AESS, aiming to expose students to the latest in aerospace and electronic systems through interactive sessions, expert talks, and project displays.",
-        image: "", // If you have an image URL, you can add it here
+        image: `${beyond}`, // If you have an image URL, you can add it here
         registrationLink: "", // If there's a form, include link
       },
     ],
