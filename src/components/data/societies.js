@@ -1,5 +1,5 @@
+//Imports for execom member's profile photo
 import varun from "../assets/Varun.jpeg"
-import relStep from "../assets/relStep.png"
 import suhana from "../assets/suhana.jpg"
 import megha from "../assets/megha.jpg"
 import Souparni from "../assets/Souparni.jpg"
@@ -8,7 +8,14 @@ import vishwas from "../assets/vishwas.jpg"
 import sahitya from "../assets/sahitya.jpg"
 import eashwar from "../assets/eashwar.jpg"
 import vaishnavi from "../assets/vaishnavi.png"
-import beyond from "../assets/beyond.jpg"
+import sachin from "../assets/sachin.jpg"
+import pranav from "../assets/pranav.jpg"
+import pranati from "../assets/pranati.jpeg"
+import rakshita from "../assets/rakshita.jpeg"
+import girish from "../assets/girish.jpg"
+//imports for event images
+import relStep from "../assets/relStep.png"
+import horizon from "../assets/horizon.jpg"
 export const societiesData = [
   {
     id: "rel",
@@ -135,6 +142,16 @@ export const societiesData = [
         website:
           "https://v0.dev/chat/portfolio-website-q0HUkVr0tIZ?b=b_NiK9xkAjrB1",
       },
+      {
+        id: "100642298",
+        name: "Pranav R Pattan",
+        position: "Secretary",
+        image: `${pranav}`,
+        bio: "Undergraduate | Electronics and Communication Engineering | Passionate about Innovation & Problem solving | Secretary, Communication Society Student chapter (35261-F) | BEC-IEEE | SAC member @ IEEE Bangalore Section",
+        email: "pranavpattan@ieee.org",
+        linkedin: "https://www.linkedin.com/in/pranav-r-pattan-792082298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "https://v0-portfolio-creation-gamma.vercel.app/",
+      }     
     ],
   },
   {
@@ -158,7 +175,7 @@ export const societiesData = [
         date: "2025-02-19",
         location: "Infront of college quadrangle",
         description: "A flagship event organized by BEC IEEE AESS, aiming to expose students to the latest in aerospace and electronic systems through interactive sessions, expert talks, and project displays.",
-        image: `${beyond}`, // If you have an image URL, you can add it here
+        image: `${horizon}`, // If you have an image URL, you can add it here
         registrationLink: "", // If there's a form, include link
       },
     ],
@@ -248,6 +265,59 @@ export const societiesData = [
           "https://www.linkedin.com/in/megha-hadli-17a51932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         website: "https://v0-smart-bike-stand-plan.vercel.app/",
       },
+      {
+        id: "99694030",
+        name: "Sachin K Pawar",
+        position: "Secretary",
+        image: `${sachin}`,
+        bio: "ECE Undergrad | BEC-IEEE VTS Secretary (STB35261G) | SAC member @IEEE Bangalore Section",
+        email: "sachinkpawar@ieee.org",
+        linkedin: "https://www.linkedin.com/in/sachin-k-pawar-7b5a85292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "https://v0-portfolio-for-sachin-k-pawar.vercel.app/",
+      }      
     ],
   },
+  {
+    id: "CASS",
+    name: "CASS",
+    about: "The Circuits and Systems Society (CASS) at Basaveshwar Engineering College, Bagalkot is an IEEE student chapter focused on enhancing knowledge and skills in circuits, systems, and electronics. It organizes workshops, seminars, and technical events to help students stay updated with industry trends, gain hands-on experience, and connect with professionals in the field. The society aims to foster innovation and provide a platform for students to grow academically and professionally.",
+    shortDescription:
+    "IEEE CASS at BEC Bagalkot is a student chapter focused on advancing knowledge in circuits, systems, and electronics through hands-on learning and industry engagement.",
+    description: `The IEEE Circuits and Systems Society (CASS) at Basaveshwar Engineering College (BEC), Bagalkot, is dedicated to exploring advancements in circuits, systems, and electronic technologies. The chapter organizes technical workshops, seminars, training sessions, and project expos to provide students with practical skills and up-to-date industry knowledge. It fosters a collaborative environment that encourages research, innovation, and professional growth in areas like electronics, communication, and automation. CASS also promotes networking among students, faculty, and industry experts, equipping members with problem-solving and teamwork skills essential for future engineering careers.`,
+    vision:
+      "To promote interdisciplinary knowledge in circuits and systems, driving innovation that supports the United Nations Sustainable Development Goals and benefits humanity through impactful technological solutions.",
+    logo: "https://ieee-cas.org/files/ieeecass/cas-vector-logo-w-text-horizontal_web.svg",
+    website: "https://ieee-cas.org/",
+    mission: "To advance and promote circuits and systems knowledge framed in interdisciplinarity to be essential to the global and diverse technical community and be universally recognized for providing and leading solutions to the United Nations' Sustainable Development Goals.\nTo foster technological innovation and excellence in fundamentals, emerging directions, and application of circuits and systems for the benefit of humanity through an interdisciplinary community.",
+    events: [],
+    executiveCommittee: [
+      {
+        id: "101252107",
+        name: "Rakshith Baragi",
+        position: "Chair",
+        image: `${rakshita}`,
+        email: "rakshitabaragi4@gmail.com",
+        linkedin: "https://www.linkedin.com/in/rakshita-baragi-33b751277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      },
+      {
+        id: "101170388",
+        name: "Pranati Devendra Halakurki",
+        position: "Webmaster",
+        image: `${pranati}`,
+        bio: "I am Pranati Devendra Halakurki, a second-year student from the Information Science Department at Basaveshwara Engineering College, Bagalkot. With a deep interest in both technology and creativity, I enjoy exploring new ideas that blend logic with artistic expression. Craft making is a hobby that allows me to work with my hands and express my imagination, while listening to music helps me relax and stay inspired. I am always curious, open to learning, and excited about opportunities that help me grow both personally and professionally.",
+        email: "pranati.9g@gmail.com",
+        linkedin: "https://www.linkedin.com/in/pranati-halakurki-3a3a96292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "https://pranati.vercel.app/"
+      },
+      {
+        id: "100664130",
+        name: "Girish Udapudi",
+        position: "Secretary",
+        image: `${girish}`,
+        bio: "ECE Undergrad | BEC-IEEE CASS Secretary",
+        email: "giriudapudi@gmail.com",
+        linkedin: "https://www.linkedin.com/in/girish-udapudi-688a88292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      }
+    ]
+  }  
 ];
