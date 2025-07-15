@@ -37,7 +37,7 @@ export default function SocietySelector({ societies, selectedSociety, onSelect }
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-50 mt-1 w-full bg-gradient-to-b from-[rgb(52,4,91)]/90 to-black/90 backdrop-blur-md border border-purple-700/30 rounded-lg shadow-lg max-h-60 overflow-auto"
+            className="absolute z-50 mt-1 w-full max-h-[80vh] overflow-visible bg-gradient-to-b from-[rgb(52,4,91)]/90 to-black/90 backdrop-blur-md border border-purple-700/30 rounded-lg shadow-lg"
           >
             <ul className="py-1">
               {societies.map((society) => (
@@ -69,4 +69,3 @@ export default function SocietySelector({ societies, selectedSociety, onSelect }
     </div>
   )
 }
-

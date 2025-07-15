@@ -1,10 +1,21 @@
+//Imports for execom member's profile photo
 import varun from "../assets/Varun.jpeg"
-import relStep from "../assets/relStep.png"
 import suhana from "../assets/suhana.jpg"
 import megha from "../assets/megha.jpg"
 import Souparni from "../assets/Souparni.jpg"
 import chetan from "../assets/chetan.jpg"
 import vishwas from "../assets/vishwas.jpg"
+import sahitya from "../assets/sahitya.jpg"
+import eashwar from "../assets/eashwar.jpg"
+import vaishnavi from "../assets/vaishnavi.png"
+import sachin from "../assets/sachin.jpg"
+import pranav from "../assets/pranav.jpg"
+import pranati from "../assets/pranati.jpeg"
+import rakshita from "../assets/rakshita.jpeg"
+import girish from "../assets/girish.jpg"
+//imports for event images
+import relStep from "../assets/relStep.png"
+import horizon from "../assets/horizon.jpg"
 export const societiesData = [
   {
     id: "rel",
@@ -131,6 +142,97 @@ export const societiesData = [
         website:
           "https://v0.dev/chat/portfolio-website-q0HUkVr0tIZ?b=b_NiK9xkAjrB1",
       },
+      {
+        id: "100642298",
+        name: "Pranav R Pattan",
+        position: "Secretary",
+        image: `${pranav}`,
+        bio: "Undergraduate | Electronics and Communication Engineering | Passionate about Innovation & Problem solving | Secretary, Communication Society Student chapter (35261-F) | BEC-IEEE | SAC member @ IEEE Bangalore Section",
+        email: "pranavpattan@ieee.org",
+        linkedin: "https://www.linkedin.com/in/pranav-r-pattan-792082298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "https://v0-portfolio-creation-gamma.vercel.app/",
+      }     
+    ],
+  },
+  {
+    id: "aess",
+    name: "AESS",
+    totalMembers: 17,
+    shortDescription:
+      "BEC IEEE AESS (Aerospace and Electronic Systems Society) is a student chapter at Basaveshwar Engineering College, Bagalkot, dedicated to promoting interest and innovation in aerospace and electronic systems.",
+    description:
+      "The BEC IEEE Aerospace and Electronic Systems Society (AESS) is a student chapter at Basaveshwar Engineering College, Bagalkot, dedicated to promoting innovation and learning in aerospace and electronic systems. It provides students with opportunities to engage in technical workshops, hands-on projects, expert talks, and competitions, fostering skills in areas like avionics, satellite systems, and embedded electronics. The chapter aims to bridge the gap between classroom knowledge and real-world applications, inspiring future leaders in aerospace and defense technologies.",
+    logo: "https://ieee-aess.org/files/ieeeaess/aess-logo.svg",
+    website: "https://ieee-aess.org/",
+    vision:
+      "To be a dynamic student chapter that fosters innovation, technical excellence, and leadership in aerospace and electronic systems, preparing students to contribute meaningfully to advancements in science, technology, and society.",
+    mission:
+      "To promote practical learning and knowledge in aerospace and electronic systems.\nTo organize workshops, seminars, and hands-on projects for skill development.\nTo foster collaboration and innovation through student-led initiatives.\nTo provide industry exposure and networking opportunities for students.",
+    events: [
+      {
+        id: "aess-event-1",
+        title: "Beyond the Horizons",
+        date: "2025-02-19",
+        location: "Infront of college quadrangle",
+        description: "A flagship event organized by BEC IEEE AESS, aiming to expose students to the latest in aerospace and electronic systems through interactive sessions, expert talks, and project displays.",
+        image: `${horizon}`, // If you have an image URL, you can add it here
+        registrationLink: "", // If there's a form, include link
+      },
+    ],
+    executiveCommittee: [
+      {
+        id: "99999901",
+        name: "Darur Eashwar",
+        position: "Chair",
+        image: `${eashwar}`,
+        bio: "Chair BEC-IEEE AESS (SBC35261D)",
+        email: "eashwardarur5@ieee.org",
+        linkedin:
+          "https://www.linkedin.com/in/eashwar-darur-6b1748277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "",
+      },
+      {
+        id: "100143672",
+        name: "Vaishnavi Amate",
+        position: "Secretary",
+        image:
+          `${vaishnavi}`,
+        bio: "Aspiring Electronics Engineer | ECE Undergraduate at Basaveshwar Engineering College | AESS Society Student chapter (35261-D) Secretary",
+        email: "vaishnaviamate682@ieee.org",
+        linkedin:
+          "https://www.linkedin.com/in/vaishnavi-amate-528a94292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "",
+      },
+    ],
+  },
+  {
+    id: "ras",
+    name: "RAS TEAM",
+    totalMembers: 5,
+    totalPublications:0,
+    shortDescription:
+      "The IEEE Robotics and Automation Society fosters progress in robotics and automation science, supporting research, learning, and professional excellence.",
+    description:
+      "The IEEE Robotics and Automation Society's objectives are scientific, literary and educational in character. The Society strives for the advancement of the theory and practice of robotics and automation engineering and science and of the allied arts and sciences, and for the maintenance of high professional standards among its members, all in consonance with the Constitution and Bylaws of the IEEE and with special attention to such aims within the Field of Interest of the Society.",
+    logo: "https://entrepreneurship.ieee.org/wp-content/uploads/2016/04/IEEE-RAS-logo_4C_stacked.jpg",
+    website: "https://www.ieee-ras.org/",
+    vision:
+      "Our Vision is to be the most recognized and respected global organization in Robotics and Automation.",
+    mission:
+      "Our Mission is to foster the development and facilitate the exchange of scientific and technological knowledge in Robotics and Automation that benefits members, the profession and humanity.",
+    events: [],
+    executiveCommittee: [
+      {
+        id: "99048259",
+        name: "Sahitya Papanal",
+        position: "Chair",
+        image: `${sahitya}`, // No image link provided
+        bio: "CHAIR BEC-IEEE RAS | AIML UNDERGRADUATE",
+        email: "sahityapapanal@gmail.com",
+        linkedin:
+          "https://www.linkedin.com/in/sahitya-papanal-2b1066266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "https://sahityapapanal.vercel.app/",
+      },
     ],
   },
   {
@@ -163,6 +265,59 @@ export const societiesData = [
           "https://www.linkedin.com/in/megha-hadli-17a51932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         website: "https://v0-smart-bike-stand-plan.vercel.app/",
       },
+      {
+        id: "99694030",
+        name: "Sachin K Pawar",
+        position: "Secretary",
+        image: `${sachin}`,
+        bio: "ECE Undergrad | BEC-IEEE VTS Secretary (STB35261G) | SAC member @IEEE Bangalore Section",
+        email: "sachinkpawar@ieee.org",
+        linkedin: "https://www.linkedin.com/in/sachin-k-pawar-7b5a85292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "https://v0-portfolio-for-sachin-k-pawar.vercel.app/",
+      }      
     ],
   },
+  {
+    id: "CASS",
+    name: "CASS",
+    about: "The Circuits and Systems Society (CASS) at Basaveshwar Engineering College, Bagalkot is an IEEE student chapter focused on enhancing knowledge and skills in circuits, systems, and electronics. It organizes workshops, seminars, and technical events to help students stay updated with industry trends, gain hands-on experience, and connect with professionals in the field. The society aims to foster innovation and provide a platform for students to grow academically and professionally.",
+    shortDescription:
+    "IEEE CASS at BEC Bagalkot is a student chapter focused on advancing knowledge in circuits, systems, and electronics through hands-on learning and industry engagement.",
+    description: `The IEEE Circuits and Systems Society (CASS) at Basaveshwar Engineering College (BEC), Bagalkot, is dedicated to exploring advancements in circuits, systems, and electronic technologies. The chapter organizes technical workshops, seminars, training sessions, and project expos to provide students with practical skills and up-to-date industry knowledge. It fosters a collaborative environment that encourages research, innovation, and professional growth in areas like electronics, communication, and automation. CASS also promotes networking among students, faculty, and industry experts, equipping members with problem-solving and teamwork skills essential for future engineering careers.`,
+    vision:
+      "To promote interdisciplinary knowledge in circuits and systems, driving innovation that supports the United Nations Sustainable Development Goals and benefits humanity through impactful technological solutions.",
+    logo: "https://ieee-cas.org/files/ieeecass/cas-vector-logo-w-text-horizontal_web.svg",
+    website: "https://ieee-cas.org/",
+    mission: "To advance and promote circuits and systems knowledge framed in interdisciplinarity to be essential to the global and diverse technical community and be universally recognized for providing and leading solutions to the United Nations' Sustainable Development Goals.\nTo foster technological innovation and excellence in fundamentals, emerging directions, and application of circuits and systems for the benefit of humanity through an interdisciplinary community.",
+    events: [],
+    executiveCommittee: [
+      {
+        id: "101252107",
+        name: "Rakshith Baragi",
+        position: "Chair",
+        image: `${rakshita}`,
+        email: "rakshitabaragi4@gmail.com",
+        linkedin: "https://www.linkedin.com/in/rakshita-baragi-33b751277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      },
+      {
+        id: "101170388",
+        name: "Pranati Devendra Halakurki",
+        position: "Webmaster",
+        image: `${pranati}`,
+        bio: "I am Pranati Devendra Halakurki, a second-year student from the Information Science Department at Basaveshwara Engineering College, Bagalkot. With a deep interest in both technology and creativity, I enjoy exploring new ideas that blend logic with artistic expression. Craft making is a hobby that allows me to work with my hands and express my imagination, while listening to music helps me relax and stay inspired. I am always curious, open to learning, and excited about opportunities that help me grow both personally and professionally.",
+        email: "pranati.9g@gmail.com",
+        linkedin: "https://www.linkedin.com/in/pranati-halakurki-3a3a96292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        website: "https://pranati.vercel.app/"
+      },
+      {
+        id: "100664130",
+        name: "Girish Udapudi",
+        position: "Secretary",
+        image: `${girish}`,
+        bio: "ECE Undergrad | BEC-IEEE CASS Secretary",
+        email: "giriudapudi@gmail.com",
+        linkedin: "https://www.linkedin.com/in/girish-udapudi-688a88292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      }
+    ]
+  }  
 ];

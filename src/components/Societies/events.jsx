@@ -36,6 +36,15 @@ export default function Events({ events }) {
     setActiveIndex((prev) => (prev === events.length - 1 ? 0 : prev + 1))
   }
 
+  const isRegistrationOpen = (dateStr) => {
+    const eventDate = new Date(dateStr)
+    const today = new Date()
+    // Remove time from comparison
+    eventDate.setHours(0, 0, 0, 0)
+    today.setHours(0, 0, 0, 0)
+    return eventDate >= today
+  }
+
   return (
     <motion.div
       ref={ref}
@@ -46,14 +55,14 @@ export default function Events({ events }) {
     >
       <div className="flex items-center gap-3 mb-6">
         <div className="h-10 w-1 bg-gradient-to-b from-purple-500 to-[rgb(52,4,91)] rounded-full"></div>
-        <h2 className="text-3xl md:text-4xl font-bold text-white">Upcoming Events</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white">Events</h2>
       </div>
 
       {events.length === 0 ? (
         <div className="text-center py-16 bg-gradient-to-br from-gray-900 to-black rounded-xl border border-[rgb(52,4,91)]/30 shadow-[0_5px_15px_rgba(0,0,0,0.35)]">
           <Calendar className="w-16 h-16 mx-auto text-[rgb(52,4,91)] mb-4 opacity-50" />
-          <p className="text-gray-300 text-xl">No upcoming events at the moment.</p>
-          <p className="text-gray-500">Check back later for new events!</p>
+          <p className="text-gray-300 text-xl">No events at the moment.</p>
+          <p className="text-gray-500">Check back later for updates!</p>
         </div>
       ) : (
         <div className="relative">
@@ -93,7 +102,7 @@ export default function Events({ events }) {
 
                     <p className="text-gray-300 mb-6">{events[activeIndex].description}</p>
 
-                    {events[activeIndex].registrationLink && (
+                    {isRegistrationOpen(events[activeIndex].date) && events[activeIndex].registrationLink ? (
                       <a
                         href={events[activeIndex].registrationLink}
                         target="_blank"
@@ -103,6 +112,14 @@ export default function Events({ events }) {
                         Register Now
                         <ExternalLink className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </a>
+                    ) : (
+                      <div
+                        className="inline-flex items-center px-6 py-3 text-white bg-red-900/40 border border-red-600/40 rounded-md shadow-md cursor-not-allowed relative overflow-hidden transition-all duration-300 hover:shadow-red-500/30 hover:scale-105 animate-pulse-slow">
+                        <span className="z-10 font-medium">Event Ended!!</span>
+                        <div className="absolute inset-0 bg-red-500 opacity-10 group-hover:opacity-20 transition duration-300 blur-md pointer-events-none" />
+                      </div>
+
+
                     )}
                   </div>
                 </div>
@@ -150,4 +167,3 @@ export default function Events({ events }) {
     </motion.div>
   )
 }
-
