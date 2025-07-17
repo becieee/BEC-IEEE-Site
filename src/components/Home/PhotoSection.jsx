@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { TiArrowRight } from "react-icons/ti";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
 import "./css/grid.css";
 
 const PhotoSection = () => {
   const navigate = useNavigate();
-
+  gsap.registerPlugin(ScrollTrigger);
 
   const [isSM, setIsSM] = useState(false);
 
@@ -24,6 +25,29 @@ const PhotoSection = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // useEffect(() => {
+  //   document.querySelectorAll(".elem").forEach(elem => {
+  //     let image = elem.querySelector("img")
+  //     let tl = gsap.timeline()
+
+  //     let xTransform = gsap.utils.random(-100, 100);
+
+  //     tl.set(image,{
+  //       transformOrigin: `${xTransform < 0 ? 0 : '100%'}`,
+  //     },"start")
+  //     .to(image, {
+  //       scale: 0,
+  //       ease:"none",
+  //       scrollTrigger: {
+  //         trigger:image,
+  //         start: "top top",
+  //         end: "bottom top",
+  //         scrub: true
+  //       }
+  //     },"start")
+  //   })
+  // },[])
 
   return (
     <>
