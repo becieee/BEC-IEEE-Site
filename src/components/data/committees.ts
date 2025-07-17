@@ -157,7 +157,7 @@ export const committees: Committee[] = [
         designation: "Webmaster",
         image: `${prajwal}`,
         linkedin: "https://www.linkedin.com/in/prajwalshettar43",
-        portfolio: "https://www.linkedin.com/in/prajwalshettar43",
+        portfolio: "https://portfolio-prajwal43.vercel.app/",
         email: "prajwalshettar43@gmail.com",
       },
       {
@@ -194,7 +194,7 @@ export const committees: Committee[] = [
         designation: "Editorial Head",
         image: `${sahitya}`,
         linkedin: "https://www.linkedin.com/in/sahitya-p-870240273/",
-        portfolio: "https://sahityaportfolio.netlify.app/",
+        portfolio: "https://sahityapapanal.vercel.app/",
         email: "sahityapolicepatil0@gmail.com",
       },
       {
