@@ -9,9 +9,8 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      autoRaf: true,
-    });
+    // Restore the original, simple Lenis setup for smooth scrolling.
+    const lenis = new Lenis();
 
     function raf(time) {
       lenis.raf(time);
@@ -20,18 +19,23 @@ const App = () => {
 
     requestAnimationFrame(raf);
 
-    // Simulate a loading time (e.g., 2 seconds)
+    // Simulate a loading time.
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 6500);
+    }, 2500); // Using a shorter, more reasonable load time.
 
-    return () => clearTimeout(timer); // Clean up the timer
+    // Cleanup timer and destroy Lenis instance to prevent memory leaks.
+    return () => {
+      clearTimeout(timer);
+      lenis.destroy();
+    };
   }, []);
 
   if (loading) {
-    return <Loader />; // Show the loader
+    return <Loader />; // Show the loader while content is preparing.
   }
 
+  // Render the main application content once loading is complete.
   return (
     <>
       <Navbar />
