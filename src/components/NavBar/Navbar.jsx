@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import BecLogo from "/assets/beclogo.png"
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("/");
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState(location.pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
   useEffect(() => {
@@ -19,11 +20,15 @@ const Navbar = () => {
     };
     document.addEventListener("mousedown", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
+    
+    // Update active link when route changes
+    setActiveLink(location.pathname);
+    
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [menuRef]);
+  }, [menuRef, location]);
   const links = [
     { name: "HOME", path: "/", width: "80px" },
     { name: "ABOUT", path: "/about", width: "80px" },
@@ -35,7 +40,9 @@ const Navbar = () => {
     { name: "MEMBERSHIP", path: "/membership", width: "140px" },
   ];
   // Get active link index and width
+  // Find active link index and check if it exists
   const activeIndex = links.findIndex((link) => link.path === activeLink);
+  const isActiveRoute = activeIndex !== -1;
   const activeWidth = links[activeIndex]?.width || "60px";
   return (
     <>
@@ -44,9 +51,9 @@ const Navbar = () => {
       <div className="relative h-12 w-[800px] bg-black rounded-full flex justify-between items-center text-sm font-light gap-10">
         {/* White indicator div */}
         <div
-          className="absolute bg-white rounded-full leading-[3rem] h-12 transition-all duration-300 ease-in-out z-0"
+          className={`absolute bg-white rounded-full leading-[3rem] h-12 transition-all duration-300 ease-in-out z-0 ${isActiveRoute ? '' : 'opacity-0'}`}
           style={{
-            left: `calc(${activeIndex < 3 ? activeIndex * 75 : activeIndex == 3 ? activeIndex * 79 : activeIndex == 4 ? activeIndex * 93 :  activeIndex * 94 }% / ${links.length})`,
+            left: isActiveRoute ? `calc(${activeIndex < 3 ? activeIndex * 75 : activeIndex == 3 ? activeIndex * 79 : activeIndex == 4 ? activeIndex * 93 :  activeIndex * 94 }% / ${links.length})` : 'calc(-100%)',
             width: activeWidth,
           }}
         ></div>
