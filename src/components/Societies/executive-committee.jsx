@@ -39,7 +39,12 @@ export default function ExecutiveCommittee({ committee }) {
     >
       <div className="flex items-center gap-3 mb-6">
         <div className="h-10 w-1 bg-gradient-to-b from-purple-500 to-[rgb(52,4,91)] rounded-full"></div>
-        <h2 className="text-3xl md:text-4xl font-bold text-white">Executive Committee</h2>
+        <div className="relative h-full flex flex-col items-center justify-center text-white px-4 text-center z-10">
+              <div className="relative" style={{ opacity: 1, transform: 'none' }}>
+                <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[rgb(52,4,91)] via-[rgb(52,4,91)] to-black opacity-75 blur-xl"></div>
+                <h2 className="relative text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-100">Executive Committee</h2>
+              </div>
+            </div>
       </div>
 
       {committee.length === 0 ? (

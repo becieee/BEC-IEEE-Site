@@ -10,6 +10,7 @@ import ExecutiveCommittee from "./executive-committee"
 import ParticleBackground from "./particle-background"
 import Statistics from "./statistics"
 import { societiesData } from "../data/societies"
+import Footer from "../Home/Footer"
 
 export default function SocietyPage() {
   const [selectedSociety, setSelectedSociety] = useState(societiesData[0])
@@ -247,41 +248,9 @@ export default function SocietyPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-t from-black to-[rgb(52,4,91)]/30 text-white py-12 border-t border-[rgb(52,4,91)]/30">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-8 md:mb-0 text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-200">
-                IEEE Societies
-              </h3>
-              <p className="text-purple-300">Advancing Technology for Humanity</p>
-            </div>
-            <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-              <a
-                href="#"
-                className="text-purple-300 hover:text-white transition-colors duration-300 text-center md:text-left"
-              >
-                Contact Us
-              </a>
-              <a
-                href="#"
-                className="text-purple-300 hover:text-white transition-colors duration-300 text-center md:text-left"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-purple-300 hover:text-white transition-colors duration-300 text-center md:text-left"
-              >
-                Terms of Use
-              </a>
-            </div>
-          </div>
-          <div className="mt-8 pt-4 border-t border-[rgb(52,4,91)]/30 text-center text-purple-400">
-            <p>© {new Date().getFullYear()} IEEE. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <div className="mt-16">
+        <Footer />
+      </div>
     </div>
   )
 }
