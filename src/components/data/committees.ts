@@ -143,7 +143,7 @@ export const committees: Committee[] = [
         designation: "Membership Coordinator",
         image: `${sangamesh}`,
         linkedin: "https://www.linkedin.com/in/sangamesh-kanabur-770a95292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        portfolio: "https://sangamesh-k.vercel.app/",
+        portfolio: "https://sangamesh-kanabur-gbw6iqm.gamma.site/",
         email: "sanguk2005@gmail.com",
       }
       
