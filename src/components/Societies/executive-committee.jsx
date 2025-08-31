@@ -52,95 +52,121 @@ export default function ExecutiveCommittee({ committee }) {
           <p className="text-gray-300 text-xl">No committee members listed.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {committee.map((member) => (
-            <motion.div
-              key={member.id}
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.03,
-                transition: { duration: 0.2 },
-              }}
-              className="relative group perspective"
-              onMouseEnter={() => setHoveredMember(member.id)}
-              onMouseLeave={() => setHoveredMember(null)}
-              onClick={() => setSelectedMember(member)}
-            >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-[rgb(52,4,91)] to-purple-900 rounded-xl blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
-              <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-[rgb(52,4,91)]/50 shadow-[0_5px_15px_rgba(0,0,0,0.35)] hover:shadow-[0_5px_25px_rgba(52,4,91,0.5)] transition-all duration-300 h-full">
-                <div className="aspect-square overflow-hidden bg-gradient-to-br from-[rgb(52,4,91)]/30 to-black relative">
-                  <img
-                    src={member.image || "/placeholder.svg?height=400&width=400"}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent transition-opacity duration-300 ${
-                      hoveredMember === member.id ? "opacity-80" : "opacity-50"
-                    }`}
-                  ></div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                  <p className="text-purple-300 font-medium mb-3">{member.position}</p>
-
-                  {member.bio && <p className="text-gray-400 text-sm mb-4 line-clamp-2">{member.bio}</p>}
-
-                  <div className="flex space-x-2 mt-4">
-                    {member.email && (
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="p-2 text-gray-400 hover:text-purple-300 hover:bg-[rgb(52,4,91)]/30 rounded-full transition-colors"
-                        aria-label={`Email ${member.name}`}
-                      >
-                        <Mail className="w-5 h-5" />
-                      </a>
-                    )}
-
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 text-gray-400 hover:text-purple-300 hover:bg-[rgb(52,4,91)]/30 rounded-full transition-colors"
-                        aria-label={`${member.name}'s LinkedIn profile`}
-                      >
-                        <Linkedin className="w-5 h-5" />
-                      </a>
-                    )}
-
-                    {member.twitter && (
-                      <a
-                        href={member.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 text-gray-400 hover:text-purple-300 hover:bg-[rgb(52,4,91)]/30 rounded-full transition-colors"
-                        aria-label={`${member.name}'s Twitter profile`}
-                      >
-                        <Twitter className="w-5 h-5" />
-                      </a>
-                    )}
-
-                    {member.website && (
-                      <a
-                        href={member.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 text-gray-400 hover:text-purple-300 hover:bg-[rgb(52,4,91)]/30 rounded-full transition-colors"
-                        aria-label={`${member.name}'s website`}
-                      >
-                        <Globe className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[rgb(52,4,91)] to-purple-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              </div>
-            </motion.div>
-          ))}
+        <motion.div 
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible"
+>
+  {committee.map((member) => (
+    <motion.div
+      key={member.id}
+      variants={itemVariants}
+      whileHover={{
+        scale: 1.02,
+        y: -8,
+        transition: { duration: 0.3, ease: "easeOut" },
+      }}
+      className="relative group cursor-pointer"
+      onMouseEnter={() => setHoveredMember(member.id)}
+      onMouseLeave={() => setHoveredMember(null)}
+      onClick={() => setSelectedMember(member)}
+    >
+      {/* Glow effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-70 transition-all duration-500 group-hover:blur-md"></div>
+      
+      {/* Main card */}
+      <div className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl hover:shadow-purple-500/20 transition-all duration-500">
+        
+        {/* Image container */}
+        <div className="flex justify-center pt-6">
+          <div className="relative w-40 h-40 overflow-hidden rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/30">
+            <img
+              src={member.image || "/placeholder.svg?height=400&width=400"}
+              alt={member.name}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 ${
+                hoveredMember === member.id ? "opacity-60" : "opacity-40"
+              }`}
+            ></div>
+          </div>
+          
+          {/* Position badge */}
+          <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full">
+            <span className="text-purple-300 text-xs font-medium">{member.position}</span>
+          </div>
         </div>
+
+        {/* Content */}
+        <div className="p-6">
+          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+            {member.name}
+          </h3>
+          
+          {member.bio && (
+            <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
+              {member.bio}
+            </p>
+          )}
+
+          {/* Social links */}
+          <div className="flex space-x-3">
+            {member.email && (
+              <a
+                href={`mailto:${member.email}`}
+                className="p-2.5 text-gray-400 hover:text-white hover:bg-purple-600/20 rounded-xl transition-all duration-300 hover:scale-110"
+                aria-label={`Email ${member.name}`}
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            )}
+
+            {member.linkedin && (
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 text-gray-400 hover:text-white hover:bg-blue-600/20 rounded-xl transition-all duration-300 hover:scale-110"
+                aria-label={`${member.name}'s LinkedIn profile`}
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            )}
+
+            {member.twitter && (
+              <a
+                href={member.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 text-gray-400 hover:text-white hover:bg-sky-600/20 rounded-xl transition-all duration-300 hover:scale-110"
+                aria-label={`${member.name}'s Twitter profile`}
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+            )}
+
+            {member.website && (
+              <a
+                href={member.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 text-gray-400 hover:text-white hover:bg-green-600/20 rounded-xl transition-all duration-300 hover:scale-110"
+                aria-label={`${member.name}'s website`}
+              >
+                <Globe className="w-5 h-5" />
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* Bottom accent bar */}
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
       )}
 
       {/* Member Detail Modal */}
